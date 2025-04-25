@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.configuracao.ConfiguracaoController">
+   <children>
+      <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #84bfc3;">
+         <children>
+            <ImageView fx:id="imagemregistro" fitHeight="48.0" fitWidth="65.0" layoutX="31.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/verificado.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="87.0" layoutY="30.0" text="Configurações da conta" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="registrarbtn" layoutX="92.0" layoutY="286.0" mnemonicParsing="false" onAction="#confirmar_configuracao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Confirmar" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="excluir_configuracao_btn" layoutX="92.0" layoutY="326.0" mnemonicParsing="false" onAction="#excluir_configuracao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <TextField layoutX="92.0" layoutY="110.0" prefHeight="26.0" prefWidth="94.0" promptText="ID" />
+      <TextField layoutX="92.0" layoutY="153.0" prefHeight="26.0" prefWidth="94.0" promptText="Usuário" />
+      <TextField layoutX="92.0" layoutY="200.0" prefHeight="26.0" prefWidth="133.0" promptText="Descrição" />
+      <TextField layoutX="92.0" layoutY="249.0" prefHeight="26.0" prefWidth="134.0" promptText="Contato" />
+      <Label layoutX="92.0" layoutY="92.0" text="ID" />
+      <Label layoutX="92.0" layoutY="135.0" text="Usuário" />
+      <Label layoutX="92.0" layoutY="179.0" text="Descrição" />
+      <Label layoutX="92.0" layoutY="231.0" text="Contato" />
+      <ComboBox layoutX="277.0" layoutY="249.0" prefWidth="150.0" />
+      <ComboBox layoutX="-8.0" layoutY="-36.0" prefWidth="150.0" />
+      <ComboBox layoutX="277.0" layoutY="201.0" prefWidth="150.0" />
+      <Label layoutX="277.0" layoutY="185.0" text="Curso" />
+      <Label layoutX="277.0" layoutY="231.0" text="Nível" />
+      <ComboBox layoutX="277.0" layoutY="153.0" prefWidth="150.0" />
+      <Label layoutX="277.0" layoutY="135.0" text="Tipo de vaga" />
+      <Label layoutX="275.0" layoutY="92.0" text="Importar foto" />
+      <TextField layoutX="275.0" layoutY="110.0" prefHeight="26.0" prefWidth="94.0" promptText="Foto" />
+   </children>
+</AnchorPane>
