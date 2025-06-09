@@ -18,7 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class ConfiguracaoController {
+public class Configuracao2Controller {
 
     @FXML
     private Button btn_sair;
@@ -82,7 +82,7 @@ public class ConfiguracaoController {
             return;
         }
         try (Connection conn = Conexao.conectar()) {
-            String sql = "UPDATE curriculo SET descricao = ?, contato = ?, nivel = ?, tipo = ?, curso = ? WHERE usuario = ?";
+            String sql = "UPDATE vagas SET descricao = ?, contato = ?, nivel = ?, tipo = ?, curso = ? WHERE empresa = ?";
             var stmt = conn.prepareStatement(sql);
             stmt.setString(1, descricao);
             stmt.setString(2, contato); 
@@ -100,17 +100,14 @@ public class ConfiguracaoController {
             contato_txt.clear();
             nivel_comboBox.getSelectionModel().clearSelection();
             tipodevaga_combo.getSelectionModel().clearSelection();
-            curso_combo.getSelectionModel().clearSelection();
+            curso_combo.getSelectionModel().clearSelection();}
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem2.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Cadastro Concluído");
-        stage.setScene(new Scene(root));
-        stage.show();
-
-        }
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem3.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Cadastro Concluído");
+            stage.setScene(new Scene(root));
+            stage.show();
     }
 
     @FXML
@@ -140,22 +137,17 @@ public class ConfiguracaoController {
         Button mensagem_btn1 = (Button) root.lookup("#mensagem_btn1");
 
         mensagem_btn.setOnAction(e -> {
-            String id = id_txt.getText();
-            if (id != null && !id.isEmpty()) {
-                try (Connection conn = Conexao.conectar()) {
-                    String sql = "DELETE FROM vagas WHERE id = ?";
-                    var stmt = conn.prepareStatement(sql);
-                    stmt.setString(1, id);
-                    stmt.executeUpdate();
-                    System.out.println("Dados excluidos com sucesso!");
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                } finally {
-                    id_txt.clear();
-                    stage.close();
-                }
-            } else {
-                System.out.println("ID inválido");
+            try (Connection conn = Conexao.conectar()) {
+                String sql = "DELETE FROM curriculo WHERE id = ?";
+                var stmt = conn.prepareStatement(sql);
+                stmt.setString(1, id_txt.getText());
+                stmt.executeUpdate();
+                System.out.println("Dados excluidos com sucesso!");
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                id_txt.clear();
+                stage.close();
             }
         });
 
@@ -168,7 +160,7 @@ public class ConfiguracaoController {
 
     @FXML
     void funcao_sair(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial/telainicial.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial_vagas/telainicial_vagas.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
     		stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));

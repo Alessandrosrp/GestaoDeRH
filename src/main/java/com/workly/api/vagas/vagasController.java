@@ -1,4 +1,4 @@
-package com.workly.api.curriculo;
+package com.workly.api.vagas;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 import java.sql.Connection;
 
-public class CurriculoController {
+public class vagasController {
 
     @FXML
     private Button btn_registro;
@@ -43,7 +43,7 @@ public class CurriculoController {
     private ComboBox<String> vaga_comboBox;
 
     @FXML
-    private TextField usuario_txt;
+    private TextField empresa_txt;
 
     @FXML
     private ImageView imgFoto;
@@ -54,7 +54,7 @@ public class CurriculoController {
     private ComboBox<String> nivel_comboBox;
 
     @FXML
-    void usuario_texto(ActionEvent event) {
+    void empresa_texto(ActionEvent event) {
 
     }
     @FXML
@@ -94,7 +94,7 @@ public class CurriculoController {
 
     @FXML
     void funcao_registro(ActionEvent event) throws IOException {
-        String usuario = usuario_txt.getText();
+        String empresa = empresa_txt.getText();
         String contato = contato_txt.getText();
         String tipo = vaga_comboBox.getSelectionModel().getSelectedItem();
         String curso = curso_comboBox.getSelectionModel().getSelectedItem();
@@ -106,9 +106,9 @@ public class CurriculoController {
             return;
         }
         try (Connection conn = Conexao.conectar()) {
-            String sql = "INSERT INTO curriculo (usuario, contato, tipo, curso, descricao, foto, nivel) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO vagas (empresa, contato, tipo, curso, descricao, foto, nivel) VALUES (?, ?, ?, ?, ?, ?, ?)";
             var stmt = conn.prepareStatement(sql);
-            stmt.setString(1, usuario);
+            stmt.setString(1, empresa);
             stmt.setString(2, contato);
             stmt.setString(3, tipo); 
             stmt.setString(4, curso);  
@@ -116,7 +116,7 @@ public class CurriculoController {
             stmt.setString(6, caminhoFoto);
             stmt.setString(7, nivel);
             stmt.executeUpdate();
-            System.out.println("Curriculo cadastrado com sucesso!");
+            System.out.println("Vaga cadastrado com sucesso!");
             }
         catch (SQLException e) {
             e.printStackTrace();
@@ -125,7 +125,7 @@ public class CurriculoController {
             contato_txt.clear();
             curso_comboBox.getSelectionModel().clearSelection();
             vaga_comboBox.getSelectionModel().clearSelection();}
-            usuario_txt.clear();
+            empresa_txt.clear();
             nivel_comboBox.getSelectionModel().clearSelection();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem.fxml"));
@@ -138,7 +138,7 @@ public class CurriculoController {
 
     @FXML
     void funcao_sair(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial/telainicial.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial_vagas/telainicial_vagas.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
 		    stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.configuracao.ConfiguracaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.configuracao.Configuracao2Controller">
    <children>
       <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #84bfc3;">
          <children>
@@ -52,8 +52,8 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Label layoutX="92.0" layoutY="150.0" text="Usuário" />
-      <Label layoutX="92.0" layoutY="192.0" text="Sobre você" />
+      <Label layoutX="92.0" layoutY="150.0" text="Empresa" />
+      <Label layoutX="92.0" layoutY="192.0" text="Sobre a vaga" />
       <Label layoutX="92.0" layoutY="238.0" text="Contato" />
       <Label layoutX="277.0" layoutY="198.0" text="Curso" />
       <Label layoutX="277.0" layoutY="238.0" text="Nível" />
