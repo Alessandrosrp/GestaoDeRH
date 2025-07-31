@@ -24,39 +24,33 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="90.0" layoutY="144.0" text="Usuário">
+      <Label layoutX="90.0" layoutY="119.0" text="Usuário">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="190.0" text="Digite sua nova senha">
+      <Label layoutX="92.0" layoutY="165.0" text="Digite sua nova senha">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="92.0" layoutY="234.0" text="Confirme sua senha">
+      <Label layoutX="92.0" layoutY="209.0" text="Confirme sua senha">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Button fx:id="registrarbtn" layoutX="92.0" layoutY="286.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Confirmar" textFill="WHITE">
+      <Button fx:id="confirmar_btn" layoutX="92.0" layoutY="286.0" mnemonicParsing="false" onAction="#confirmar_redefinicao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Confirmar" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="sairbtn" layoutX="92.0" layoutY="326.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Sair" textFill="WHITE">
+      <Button fx:id="sairbtn" layoutX="92.0" layoutY="326.0" mnemonicParsing="false" onAction="#btn_sair" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Sair" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <TextField layoutX="92.0" layoutY="163.0" prefHeight="26.0" prefWidth="336.0" promptText="Usuário" />
-      <TextField layoutX="93.0" layoutY="209.0" prefHeight="26.0" prefWidth="336.0" promptText="Digite sua nova senha" />
-      <TextField layoutX="93.0" layoutY="253.0" prefHeight="26.0" prefWidth="336.0" promptText="Confirme sua senha" />
-      <TextField layoutX="92.0" layoutY="118.0" prefHeight="26.0" prefWidth="336.0" promptText="ID" />
-      <Label layoutX="90.0" layoutY="95.0" text="ID">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
+      <TextField fx:id="usuario_text" layoutX="92.0" layoutY="138.0" prefHeight="26.0" prefWidth="336.0" promptText="Usuário" />
+      <TextField fx:id="senha_txt" layoutX="93.0" layoutY="184.0" prefHeight="26.0" prefWidth="336.0" promptText="Digite sua nova senha" />
+      <TextField fx:id="confirmar_senha_text" layoutX="93.0" layoutY="228.0" prefHeight="26.0" prefWidth="336.0" promptText="Confirme sua senha" />
    </children>
 </AnchorPane>

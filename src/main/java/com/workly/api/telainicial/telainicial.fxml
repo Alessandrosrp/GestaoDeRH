@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -12,26 +13,28 @@
    <children>
       <AnchorPane prefHeight="413.0" prefWidth="600.0" style="-fx-background-color: #84bfc3;">
          <children>
-            <TableView layoutY="54.0" prefHeight="298.0" prefWidth="600.0" style="-fx-background-color: #84bfc3;">
+            <TableView fx:id="vagasdisponiveis_table" layoutY="82.0" onMouseClicked="#vagasdisponiveis_tableMouseClicked" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: #84bfc3;">
               <columns>
-                <TableColumn prefWidth="35.20001220703125" style="-fx-background-color: #339194;" text="ID" />
-                <TableColumn prefWidth="90.4000244140625" style="-fx-background-color: #339194;" text="Nome" />
-                  <TableColumn prefWidth="101.5999755859375" style="-fx-background-color: #339194;" text="Tipo de vaga" />
-                  <TableColumn prefWidth="75.0" style="-fx-background-color: #339194;" text="Curso" />
-                  <TableColumn prefWidth="75.0" style="-fx-background-color: #339194;" text="Nível" />
-                  <TableColumn prefWidth="104.800048828125" style="-fx-background-color: #339194;" text="Contato" />
-                  <TableColumn prefWidth="114.4000244140625" style="-fx-background-color: #339194;" text="Descrição" />
+                <TableColumn fx:id="colunaId" text="Id" />
+                <TableColumn fx:id="colunaEmpresa" text="Empresa" />
+                <TableColumn fx:id="colunaDescricao" text="Descrição" />
+                <TableColumn fx:id="colunaContato" text="Contato" />
+                <TableColumn fx:id="colunaTipo" text="Tipo" />
+                <TableColumn fx:id="colunaCurso" text="Curso" />
+                <TableColumn fx:id="colunaNivel" text="Nivel" />
               </columns>
             </TableView>
-            <Label layoutX="244.0" layoutY="10.0" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="Workly" textFill="#161917">
+            <Label layoutX="246.0" layoutY="2.0" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="Workly" textFill="#161917">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="btn_criarperfil" layoutX="35.0" layoutY="355.0" mnemonicParsing="false" onAction="#criarconta" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar perfil" />
-            <Button fx:id="btn_cadastrarperfil" layoutX="151.0" layoutY="355.0" mnemonicParsing="false" onAction="#cadastrarcurriculo" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Cadastrar curriculo" />
-            <Button fx:id="btn_esqueceusenha" layoutX="307.0" layoutY="355.0" mnemonicParsing="false" onAction="#esqueceusenha" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Esqueceu a senha" />
-            <Button fx:id="btn_configuracoes" layoutX="464.0" layoutY="355.0" mnemonicParsing="false" onAction="#configuracoes" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Configurações" />
+            <Button fx:id="btn_criarperfil" layoutX="19.0" layoutY="358.0" mnemonicParsing="false" onAction="#criarconta" prefHeight="30.0" prefWidth="136.0" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar perfil" />
+            <Button fx:id="btn_cadastrarperfil" layoutX="165.0" layoutY="357.0" mnemonicParsing="false" onAction="#cadastrarcurriculo" prefHeight="30.0" prefWidth="136.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Cadastrar curriculo" />
+            <Button fx:id="btn_esqueceusenha" layoutX="311.0" layoutY="357.0" mnemonicParsing="false" onAction="#esqueceusenha" prefHeight="30.0" prefWidth="136.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Redefinir senha" />
+            <Button fx:id="btn_configuracoes" layoutX="459.0" layoutY="357.0" mnemonicParsing="false" onAction="#configuracoes" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Configurações" />
+            <TextField fx:id="pesquisa_txt" layoutX="1.0" layoutY="49.0" onAction="#pesquisa_texto" prefHeight="30.0" prefWidth="466.0" promptText="Pesquise por vagas disponíveis" style="-fx-background-color: #339194; -fx-prompt-text-fill: White; -fx-font-weight: bold; -fx-text-fill: white;" />
+            <Button fx:id="btn_pesquisa" layoutX="474.0" layoutY="48.0" mnemonicParsing="false" onAction="#btn_pesquisavaga" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Pesquisar" />
          </children>
       </AnchorPane>
    </children>

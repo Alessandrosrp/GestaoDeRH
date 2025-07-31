@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.curriculo.CurriculoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.vagas.vagasController">
    <children>
       <AnchorPane layoutX="-2.0" layoutY="-2.0" prefHeight="406.0" prefWidth="218.0" style="-fx-background-color: #84bfc3;">
          <children>
@@ -18,20 +18,20 @@
                   <Image url="@../imagens/logo2.png" />
                </image>
             </ImageView>
-            <Text layoutX="76.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CURRÍCULO">
+            <Text layoutX="111.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vagas">
                <font>
                   <Font size="18.0" />
                </font></Text>
             <Text layoutX="141.39999999999998" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato:" textAlignment="RIGHT" AnchorPane.rightAnchor="26.563800811767607" />
             <Text layoutX="84.39999999999999" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaga de interesse:" textAlignment="RIGHT" />
             <Text layoutX="155.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso:" textAlignment="RIGHT" AnchorPane.rightAnchor="25.151300811767584" />
-            <Text layoutX="98.60000000000001" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre você:" textAlignment="RIGHT" AnchorPane.rightAnchor="23.406773376464827" />
+            <Text layoutX="98.60000000000001" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre a vaga:" textAlignment="RIGHT" AnchorPane.rightAnchor="23.406773376464827" />
             <Button fx:id="btn_registro" layoutX="103.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_registro" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-font-weight: white;" text="Registrar" />
-            <Text layoutX="143.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário:" textAlignment="RIGHT" />
+            <Text layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa:" textAlignment="RIGHT" />
             <Text layoutX="161.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" />
          </children>
       </AnchorPane>
-      <TextField fx:id="usuario_txt" layoutX="230.0" layoutY="128.0" onAction="#usuario_texto" promptText="Usuário" />
+      <TextField fx:id="empresa_txt" layoutX="230.0" layoutY="128.0" onAction="#empresa_texto" promptText="Empresa" />
       <TextField fx:id="contato_txt" layoutX="230.0" layoutY="160.0" onAction="#contato_texto" promptText="Telefone ou E-mail" />
       <ComboBox fx:id="vaga_comboBox" layoutX="231.0" layoutY="196.0" onAction="#vaga_combo" prefWidth="150.0" />
       <ComboBox fx:id="curso_comboBox" layoutX="231.0" layoutY="230.0" onAction="#curso_combo" prefWidth="150.0" />
@@ -48,7 +48,6 @@
             <Image url="@../imagens/semfoto.png" />
          </image>
       </ImageView>
-      <Text layoutX="34.0" layoutY="-29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="460.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione sua foto:" />
+      <Text layoutX="457.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione sua foto:" />
    </children>
 </AnchorPane>
