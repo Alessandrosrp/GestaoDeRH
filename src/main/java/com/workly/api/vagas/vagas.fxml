@@ -27,7 +27,7 @@
             <Text layoutX="155.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso:" textAlignment="RIGHT" AnchorPane.rightAnchor="25.151300811767584" />
             <Text layoutX="98.60000000000001" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre a vaga:" textAlignment="RIGHT" AnchorPane.rightAnchor="23.406773376464827" />
             <Button fx:id="btn_registro" layoutX="103.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_registro" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-font-weight: white;" text="Registrar" />
-            <Text layoutX="135.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa:" textAlignment="RIGHT" />
+            <Text layoutX="141.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empresa:" textAlignment="RIGHT" />
             <Text layoutX="161.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" />
          </children>
       </AnchorPane>

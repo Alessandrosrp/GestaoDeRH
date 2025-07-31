@@ -22,16 +22,16 @@
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <Text layoutX="141.39999999999998" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato:" textAlignment="RIGHT" AnchorPane.rightAnchor="26.563800811767607" />
-            <Text layoutX="84.39999999999999" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaga de interesse:" textAlignment="RIGHT" />
-            <Text layoutX="155.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso:" textAlignment="RIGHT" AnchorPane.rightAnchor="25.151300811767584" />
-            <Text layoutX="98.60000000000001" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre você:" textAlignment="RIGHT" AnchorPane.rightAnchor="23.406773376464827" />
+            <Text layoutX="153.8" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato:" textAlignment="CENTER" AnchorPane.rightAnchor="17.36380081176756" />
+            <Text layoutX="96.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaga de interesse:" textAlignment="RIGHT" />
+            <Text layoutX="166.39999999999998" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso:" textAlignment="RIGHT" AnchorPane.rightAnchor="16.951300811767595" />
+            <Text layoutX="108.2" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre você:" textAlignment="RIGHT" AnchorPane.rightAnchor="17.00677337646485" />
             <Button fx:id="btn_registro" layoutX="103.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_registro" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-font-weight: white;" text="Registrar" />
-            <Text layoutX="143.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário:" textAlignment="RIGHT" />
-            <Text layoutX="161.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" />
+            <Text layoutX="141.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidato:" textAlignment="CENTER" />
+            <Text layoutX="172.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" />
          </children>
       </AnchorPane>
-      <TextField fx:id="usuario_txt" layoutX="230.0" layoutY="128.0" onAction="#usuario_texto" promptText="Usuário" />
+      <TextField fx:id="usuario_txt" layoutX="230.0" layoutY="128.0" onAction="#usuario_texto" promptText="Candidato" />
       <TextField fx:id="contato_txt" layoutX="230.0" layoutY="160.0" onAction="#contato_texto" promptText="Telefone ou E-mail" />
       <ComboBox fx:id="vaga_comboBox" layoutX="231.0" layoutY="196.0" onAction="#vaga_combo" prefWidth="150.0" />
       <ComboBox fx:id="curso_comboBox" layoutX="231.0" layoutY="230.0" onAction="#curso_combo" prefWidth="150.0" />
@@ -43,7 +43,7 @@
             <Image url="@../imagens/curriculo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgFoto" fitHeight="124.0" fitWidth="126.0" layoutX="451.0" layoutY="16.0" pickOnBounds="true">
+      <ImageView fx:id="imgFoto" fitHeight="124.0" fitWidth="126.0" layoutX="452.0" layoutY="24.0" pickOnBounds="true">
          <image>
             <Image url="@../imagens/semfoto.png" />
          </image>

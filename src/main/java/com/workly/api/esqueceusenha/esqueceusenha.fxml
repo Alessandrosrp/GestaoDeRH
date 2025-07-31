@@ -7,6 +7,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
+
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.esqueceusenha.EsqueceuSenhaController">
    <children>
@@ -50,7 +52,7 @@
          </font>
       </Button>
       <TextField fx:id="usuario_text" layoutX="92.0" layoutY="138.0" prefHeight="26.0" prefWidth="336.0" promptText="Usuário" />
-      <TextField fx:id="senha_txt" layoutX="93.0" layoutY="184.0" prefHeight="26.0" prefWidth="336.0" promptText="Digite sua nova senha" />
-      <TextField fx:id="confirmar_senha_text" layoutX="93.0" layoutY="228.0" prefHeight="26.0" prefWidth="336.0" promptText="Confirme sua senha" />
+      <PasswordField fx:id="senha_txt" layoutX="93.0" layoutY="184.0" prefHeight="26.0" prefWidth="336.0" promptText="Digite sua nova senha" />
+      <PasswordField fx:id="confirmar_senha_text" layoutX="93.0" layoutY="228.0" prefHeight="26.0" prefWidth="336.0" promptText="Confirme sua senha" />
    </children>
 </AnchorPane>

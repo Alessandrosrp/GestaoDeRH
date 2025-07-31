@@ -33,7 +33,6 @@ import java.sql.Connection;
 import java.awt.Dimension;
 
 
-
 import com.workly.api.criarperfil.Conexao;
 import com.workly.api.curriculo.vagas;
 
@@ -71,7 +70,6 @@ public class TelaInicialController {
     @FXML
     private TableColumn<vagas, String> colunaDescricao;
     
-        
     @FXML
     public void initialize() {
         try {

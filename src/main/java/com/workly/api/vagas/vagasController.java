@@ -61,7 +61,7 @@ public class vagasController {
     void initialize() {
         vaga_comboBox.getItems().addAll("Estagio", "Trabalho");
         curso_comboBox.getItems().addAll("ADS", "Medicina", "Engenharia", "Outro");
-        nivel_comboBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        nivel_comboBox.getItems().addAll("1º Semestre", "2º Semestre", "3º Semestre", "4º Semestre", "5º Semestre", "6º Semestre", "7º Semestre", "8º Semestre", "9º Semestre", "10º Semestre");
         imgFoto.setOnMouseClicked((MouseEvent event) -> {
             selecionaFoto();
     });	
@@ -131,7 +131,8 @@ public class vagasController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Cadastro Concluído");
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+            stage.setTitle("Vaga cadastrada com sucesso!");
             stage.setScene(new Scene(root));
             stage.show();
     }

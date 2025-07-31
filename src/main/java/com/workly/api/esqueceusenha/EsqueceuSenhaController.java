@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,9 +17,7 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-
 import com.workly.api.criarperfil.Conexao;
-
 
 public class EsqueceuSenhaController {
 
@@ -26,7 +25,7 @@ public class EsqueceuSenhaController {
     private Button confirmar_btn;
 
     @FXML
-    private TextField confirmar_senha_text;
+    private PasswordField confirmar_senha_text;
 
     @FXML
     private ImageView imagemregistro;
@@ -35,23 +34,23 @@ public class EsqueceuSenhaController {
     private Button sairbtn;
 
     @FXML
-    private TextField senha_txt;
+    private PasswordField senha_txt;
 
     @FXML
     private TextField usuario_text;
 
     @FXML
     void btn_sair(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/login/login.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-		    stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
-            stage.setTitle("Tela Inicial");
-            stage.setScene(new Scene(root));
-            stage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/login/login.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+        stage.setTitle("Tela Inicial");
+        stage.setScene(new Scene(root));
+        stage.show();
 
-            Stage loginStage = (Stage) sairbtn.getScene().getWindow();
-            loginStage.close();
+        Stage loginStage = (Stage) sairbtn.getScene().getWindow();
+        loginStage.close();
     }
 
     @FXML
@@ -104,11 +103,12 @@ public class EsqueceuSenhaController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem2.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Cadastro Concluído");
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+            stage.setTitle("Redefinição de Senha");
             stage.setScene(new Scene(root));
-            stage.show();
-            
-            
+            stage.showAndWait(); // espera até que a janela seja fechada
+
+            // agora que a janela de mensagem foi fechada, exibe a tela de login
             FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/com/workly/api/login/login.fxml"));
             Parent rootLogin = loaderLogin.load();
             Stage stageLogin = new Stage();
@@ -116,7 +116,10 @@ public class EsqueceuSenhaController {
             stageLogin.setTitle("Tela Inicial");
             stageLogin.setScene(new Scene(rootLogin));
             stageLogin.show();
-        }
 
+            // fecha a tela "Esqueceu Senha"
+            Stage esqueceuSenhaStage = (Stage) confirmar_btn.getScene().getWindow();
+            esqueceuSenhaStage.close();
+        }
     }
 }

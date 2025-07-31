@@ -18,12 +18,12 @@
                   <Image url="@../imagens/verificado.png" />
                </image>
             </ImageView>
-            <Label layoutX="87.0" layoutY="46.0" text="Configurações da conta" textFill="WHITE">
+            <Label layoutX="87.0" layoutY="46.0" text="Configurações" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="386.0" layoutY="2.0" pickOnBounds="true">
+            <ImageView fx:id="imagem_registro" fitHeight="120.0" fitWidth="120.0" layoutX="386.0" layoutY="2.0" pickOnBounds="true">
                <image>
                   <Image url="@../imagens/semfoto.png" />
                </image>
@@ -31,7 +31,7 @@
          </children>
       </AnchorPane>
       <TextField fx:id="id_txt" layoutX="91.0" layoutY="125.0" onAction="#id_texto" prefHeight="26.0" prefWidth="94.0" promptText="ID" />
-      <TextField fx:id="usuario_txt" layoutX="92.0" layoutY="168.0" onAction="#usuario_texto" prefHeight="26.0" prefWidth="94.0" promptText="Usuário" />
+      <TextField fx:id="usuario_txt" layoutX="92.0" layoutY="168.0" onAction="#usuario_texto" prefHeight="26.0" prefWidth="94.0" promptText="Candidato" />
       <TextField fx:id="descricao_txt" layoutX="92.0" layoutY="213.0" onAction="#descricao_texto" prefHeight="26.0" prefWidth="133.0" promptText="Descrição" />
       <TextField fx:id="contato_txt" layoutX="92.0" layoutY="255.0" onAction="#contato_texto" prefHeight="26.0" prefWidth="134.0" promptText="Contato" />
       <ComboBox fx:id="tipodevaga_combo" layoutX="277.0" layoutY="170.0" onAction="#tipodevaga_comboBox" prefWidth="150.0" />
@@ -52,11 +52,16 @@
             <Font size="13.0" />
          </font>
       </Button>
-      <Label layoutX="92.0" layoutY="150.0" text="Usuário" />
+      <Label layoutX="92.0" layoutY="150.0" text="Candidato" />
       <Label layoutX="92.0" layoutY="192.0" text="Sobre você" />
       <Label layoutX="92.0" layoutY="238.0" text="Contato" />
       <Label layoutX="277.0" layoutY="198.0" text="Curso" />
       <Label layoutX="277.0" layoutY="238.0" text="Nível" />
       <Label layoutX="277.0" layoutY="152.0" text="Tipo de vaga" />
+      <Button fx:id="Buscar" layoutX="196.0" layoutY="167.0" mnemonicParsing="false" onAction="#btn_buscar" prefHeight="8.0" prefWidth="59.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Buscar" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

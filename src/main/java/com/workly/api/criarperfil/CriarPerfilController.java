@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -21,7 +22,7 @@ import javafx.stage.Stage;
 public class CriarPerfilController {
 
     @FXML
-    private TextField confirmar_senha;
+    private PasswordField confirmar_senha;
 
     @FXML
     private TextField emailTextField;
@@ -36,7 +37,7 @@ public class CriarPerfilController {
     private Button sairbtn;
 
     @FXML
-    private TextField senhatext;
+    private PasswordField senhatext;
 
     @FXML
     private ComboBox<String> tipo_usuario;

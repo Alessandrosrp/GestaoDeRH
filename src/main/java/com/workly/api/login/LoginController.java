@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -33,7 +34,7 @@ public class LoginController {
     private Button campologin;
 
     @FXML
-    private TextField senhatxt;
+    private PasswordField senhatxt;
 
     @FXML
     private TextField usuariotxt;

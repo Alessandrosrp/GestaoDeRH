@@ -2,6 +2,8 @@ package com.workly.api.configuracao;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.workly.api.criarperfil.Conexao;
@@ -19,6 +21,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class ConfiguracaoController {
+
+    @FXML
+    private Button buscar;
 
     @FXML
     private Button btn_sair;
@@ -39,6 +44,9 @@ public class ConfiguracaoController {
     private ImageView imagemregistro;
 
     @FXML
+    private ImageView imagem_registro;
+
+    @FXML
     private TextField nivel_txt;
 
     @FXML
@@ -55,12 +63,13 @@ public class ConfiguracaoController {
 
     @FXML
     private TextField id_txt;
-    
+
     @FXML
     void initialize() {
         tipodevaga_combo.getItems().addAll("Estagio", "Trabalho");
         curso_combo.getItems().addAll("ADS", "Medicina", "Engenharia", "Outro");
-        nivel_comboBox.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        nivel_comboBox.getItems().addAll("1º Semestre", "2º Semestre", "3º Semestre", "4º Semestre", "5º Semestre", "6º Semestre", "7º Semestre", "8º Semestre", "9º Semestre", "10º Semestre");
+        
     }
 
     @FXML
@@ -101,6 +110,7 @@ public class ConfiguracaoController {
             nivel_comboBox.getSelectionModel().clearSelection();
             tipodevaga_combo.getSelectionModel().clearSelection();
             curso_combo.getSelectionModel().clearSelection();
+            id_txt.clear();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem2.fxml"));
         Parent root = loader.load();
@@ -111,6 +121,34 @@ public class ConfiguracaoController {
 
         }
 
+    }
+
+    @FXML
+    private void btn_buscar(ActionEvent event) {
+        String nomeUsuario = usuario_txt.getText();
+        if (!nomeUsuario.isEmpty()) {
+            try (Connection conn = Conexao.conectar()) {
+                String query = "SELECT * FROM curriculo WHERE usuario = ?";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                stmt.setString(1, nomeUsuario);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    // Exiba as informações do usuário na tela de configurações
+                    id_txt.setText(rs.getString("id"));
+                    descricao_txt.setText(rs.getString("descricao"));
+                    contato_txt.setText(rs.getString("contato"));
+                    tipodevaga_combo.getSelectionModel().select(rs.getString("tipo"));
+                    curso_combo.getSelectionModel().select(rs.getString("curso"));
+                    nivel_comboBox.getSelectionModel().select(rs.getString("nivel"));
+                    // ...
+                } else {
+                    // Exiba uma mensagem de erro se o usuário não for encontrado
+                    System.out.println("Currículo não encontrado");
+                }
+            } catch (SQLException e) {
+                System.out.println("Erro ao buscar usuário: " + e.getMessage());
+            }
+        }
     }
 
     @FXML
@@ -132,6 +170,7 @@ public class ConfiguracaoController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem3.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
         stage.setTitle("Confirmação de exclusão");
         stage.setScene(new Scene(root));
 
@@ -143,7 +182,7 @@ public class ConfiguracaoController {
             String id = id_txt.getText();
             if (id != null && !id.isEmpty()) {
                 try (Connection conn = Conexao.conectar()) {
-                    String sql = "DELETE FROM vagas WHERE id = ?";
+                    String sql = "DELETE FROM curriculo WHERE id = ?";
                     var stmt = conn.prepareStatement(sql);
                     stmt.setString(1, id);
                     stmt.executeUpdate();
@@ -152,6 +191,12 @@ public class ConfiguracaoController {
                     ex.printStackTrace();
                 } finally {
                     id_txt.clear();
+                    usuario_txt.clear();
+                    descricao_txt.clear();
+                    contato_txt.clear();
+                    nivel_comboBox.getSelectionModel().clearSelection();
+                    tipodevaga_combo.getSelectionModel().clearSelection();
+                    curso_combo.getSelectionModel().clearSelection();
                     stage.close();
                 }
             } else {
