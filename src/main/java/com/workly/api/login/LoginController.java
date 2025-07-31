@@ -39,6 +39,19 @@ public class LoginController {
     @FXML
     private TextField usuariotxt;
 
+<<<<<<< HEAD
+@FXML
+void criarconta(ActionEvent event) {
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/criarperfil/criarperfil.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Criar Conta");
+        stage.setScene(new Scene(root));
+        stage.show();
+    } catch (IOException e) {
+        System.out.println("Erro ao carregar a tela de criar conta: " + e.getMessage());
+=======
     @FXML
     private ComboBox<String> define_combo;
 
@@ -86,6 +99,7 @@ public class LoginController {
         } catch (IOException e) {
             System.out.println("Erro ao carregar a tela de criar conta: " + e.getMessage());
         }
+>>>>>>> ca0ac274ea24864996fedaba1ae4711bf7b22f67
     }
 
 @FXML
