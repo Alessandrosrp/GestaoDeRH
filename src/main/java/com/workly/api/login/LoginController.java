@@ -31,7 +31,7 @@ public class LoginController {
 @FXML
 void criarconta(ActionEvent event) {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("criarperfil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/criarperfil/criarperfil.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Criar Conta");
