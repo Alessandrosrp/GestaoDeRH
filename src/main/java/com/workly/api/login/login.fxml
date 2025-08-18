@@ -13,7 +13,7 @@
 
 <VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.login.LoginController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #84bfc3;" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #1B4965;" VBox.vgrow="ALWAYS">
       <children>
             <ImageView depthTest="DISABLE" fitHeight="400.0" fitWidth="640.0" nodeOrientation="INHERIT" opacity="0.12" pickOnBounds="true">
                <image>
@@ -24,11 +24,11 @@
             <ComboBox fx:id="define_combo" layoutX="313.0" layoutY="201.0" onAction="#define_comboBox" prefHeight="26.0" prefWidth="112.0" />
             <PasswordField fx:id="senhatxt" layoutX="222.0" layoutY="244.0" prefHeight="26.0" prefWidth="204.0" promptText="Senha" />
         
-        <Button fx:id="campologin" layoutX="250.0" layoutY="280.0" mnemonicParsing="false" onAction="#fazerlogin" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Login" />
-            <Button fx:id="campocriarconta" layoutX="312.0" layoutY="280.0" mnemonicParsing="false" onAction="#criarconta" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar conta" />
-            <Button fx:id="btn_esqueceusenha" layoutX="250.0" layoutY="314.0" mnemonicParsing="false" onAction="#esqueceu_senha" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Esqueceu sua senha?" />
+        <Button fx:id="campologin" layoutX="250.0" layoutY="280.0" mnemonicParsing="false" onAction="#fazerlogin" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Login" />
+            <Button fx:id="campocriarconta" layoutX="312.0" layoutY="280.0" mnemonicParsing="false" onAction="#criarconta" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar conta" />
+            <Button fx:id="btn_esqueceusenha" layoutX="250.0" layoutY="314.0" mnemonicParsing="false" onAction="#esqueceu_senha" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Esqueceu sua senha?" />
         
-        <Label layoutX="201.0" layoutY="126.0" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="Carreira IDEAU" textFill="#161917">
+        <Label layoutX="201.0" layoutY="126.0" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="Carreira IDEAU" textFill="WHITE">
           <font>
             <Font size="36.0" />
           </font>
@@ -38,10 +38,10 @@
                   <Image url="@../imagens/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="224.0" layoutY="181.0" text="Usuário" />
-            <Label layoutX="223.0" layoutY="226.0" text="Senha" />
-            <Label layoutX="300.0" layoutY="368.0" text="©Workly" textAlignment="CENTER" />
-            <Label layoutX="316.0" layoutY="181.0" text="Selecione seu acesso" />
+            <Label layoutX="224.0" layoutY="181.0" text="Usuário" textFill="WHITE" />
+            <Label layoutX="223.0" layoutY="226.0" text="Senha" textFill="WHITE" />
+            <Label layoutX="300.0" layoutY="368.0" text="©Workly" textAlignment="CENTER" textFill="WHITE" />
+            <Label layoutX="316.0" layoutY="181.0" text="Selecione seu acesso" textFill="WHITE" />
       </children>
     </AnchorPane>
   </children>
