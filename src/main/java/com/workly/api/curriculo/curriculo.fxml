@@ -11,24 +11,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.curriculo.CurriculoController">
    <children>
-      <AnchorPane layoutX="-2.0" layoutY="-2.0" prefHeight="406.0" prefWidth="218.0" style="-fx-background-color: #84bfc3;">
+      <AnchorPane layoutX="-2.0" layoutY="-2.0" prefHeight="406.0" prefWidth="218.0" style="-fx-background-color: #1B4965;">
          <children>
-            <ImageView fitHeight="406.0" fitWidth="218.0" layoutX="3.0" nodeOrientation="INHERIT" opacity="0.12" pickOnBounds="true">
+            <ImageView fitHeight="406.0" fitWidth="218.0" layoutX="3.0" nodeOrientation="INHERIT" opacity="0.12" pickOnBounds="true" style="-fx-background-color: #3E4C59;">
                <image>
                   <Image url="@../imagens/logo2.png" />
                </image>
             </ImageView>
-            <Text layoutX="76.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CURRÍCULO">
+            <Text fill="WHITE" layoutX="76.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CURRÍCULO">
                <font>
                   <Font size="18.0" />
                </font></Text>
-            <Text layoutX="153.8" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato:" textAlignment="CENTER" AnchorPane.rightAnchor="17.36380081176756" />
-            <Text layoutX="96.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaga de interesse:" textAlignment="RIGHT" />
-            <Text layoutX="166.39999999999998" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso:" textAlignment="RIGHT" AnchorPane.rightAnchor="16.951300811767595" />
-            <Text layoutX="108.2" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre você:" textAlignment="RIGHT" AnchorPane.rightAnchor="17.00677337646485" />
-            <Button fx:id="btn_registro" layoutX="103.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_registro" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-font-weight: white;" text="Registrar" />
-            <Text layoutX="141.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidato:" textAlignment="CENTER" />
-            <Text layoutX="172.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" />
+            <Text fill="WHITE" layoutX="158.6" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato:" textAlignment="CENTER" AnchorPane.rightAnchor="17.876953125" />
+            <Text fill="WHITE" layoutX="109.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vaga de interesse:" textAlignment="RIGHT" />
+            <Text fill="WHITE" layoutX="172.2" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Curso:" textAlignment="RIGHT" AnchorPane.rightAnchor="16.282812500000006" />
+            <Text fill="WHITE" layoutX="120.8" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fale sobre você:" textAlignment="RIGHT" AnchorPane.rightAnchor="16.255078124999983" />
+            <Button fx:id="btn_registro" layoutX="103.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_registro" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-font-weight: white;" text="Registrar" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="148.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidato:" textAlignment="CENTER" />
+            <Text fill="WHITE" layoutX="175.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel:" />
          </children>
       </AnchorPane>
       <TextField fx:id="usuario_txt" layoutX="230.0" layoutY="128.0" onAction="#usuario_texto" promptText="Candidato" />
@@ -37,7 +37,7 @@
       <ComboBox fx:id="curso_comboBox" layoutX="231.0" layoutY="230.0" onAction="#curso_combo" prefWidth="150.0" />
       <ComboBox fx:id="nivel_comboBox" layoutX="231.0" layoutY="266.0" onAction="#nivel_combo" prefWidth="150.0" />
       <TextField fx:id="descricao_txt" alignment="TOP_LEFT" layoutX="231.0" layoutY="297.0" onAction="#descricao_texto" prefHeight="52.0" prefWidth="298.0" promptText="Text..." />
-      <Button fx:id="btn_sair" layoutX="461.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_sair" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-font-weight: white;" text="Sair" />
+      <Button fx:id="btn_sair" layoutX="461.0" layoutY="352.0" mnemonicParsing="false" onAction="#funcao_sair" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-font-weight: white;" text="Sair" textFill="WHITE" />
       <ImageView fitHeight="102.0" fitWidth="112.0" layoutX="165.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagens/curriculo.png" />

@@ -15,27 +15,27 @@
 
     <children>
     
-        <AnchorPane layoutX="0" layoutY="0" prefHeight="449.0" prefWidth="740.0" style="-fx-background-color: #84bfc3;">
+        <AnchorPane layoutX="0" layoutY="0" prefHeight="449.0" prefWidth="740.0" style="-fx-background-color: #1B4965;">
             <children>
-                <ImageView fitHeight="448.0" fitWidth="740.0" opacity="0.1">
+                <ImageView fitHeight="462.0" fitWidth="754.0" layoutX="-14.0" layoutY="-10.0" opacity="0.1" style="-fx-background-color: #1B4965;">
                     <image>
                         <Image url="@../imagens/logo2.png" />
                     </image>
                 </ImageView>
-                <Text layoutX="282.0" layoutY="42.0" text="CADASTRO EMPRESA">
-                    <font><Font size="18.0" /></font>
+                <Text fill="WHITE" fontSmoothingType="LCD" layoutX="271.0" layoutY="40.0" text="CADASTRO EMPRESA" wrappingWidth="256.4416198730469">
+                    <font><Font size="24.0" /></font>
                 </Text>
 
                  
-                  <Label layoutX="14.0" layoutY="64.0" text="Nome da Empresa:" />
+                  <Label layoutX="14.0" layoutY="64.0" text="Nome da Empresa:" textFill="WHITE" />
                   <TextField fx:id="nomeEmpresaField" layoutX="14.0" layoutY="81.0" prefHeight="25.0" prefWidth="357.0" />
 
                   
-                  <Label layoutX="15.0" layoutY="115.0" text="Endereço:" />
+                  <Label layoutX="15.0" layoutY="115.0" text="Endereço:" textFill="WHITE" />
                   <TextField fx:id="enderecoField" layoutX="14.0" layoutY="132.0" prefHeight="25.0" prefWidth="232.0" />
 
                   
-                  <Label layoutX="262.0" layoutY="115.0" text="Cidade:" />
+                  <Label layoutX="262.0" layoutY="115.0" text="Cidade:" textFill="WHITE" />
                   <TextField fx:id="cidadeField" layoutX="384.0" layoutY="81.0" prefHeight="25.0" prefWidth="149.0" />
                   <TextField fx:id="bairroField" layoutX="548.0" layoutY="188.0" prefHeight="25.0" prefWidth="162.0" />
                   <TextField fx:id="cnpjField" layoutX="268.0" layoutY="242.0" prefHeight="25.0" prefWidth="212.0" />
@@ -49,43 +49,43 @@
                   <TextField fx:id="responsavelContratacoesField" layoutX="262.0" layoutY="132.0" prefHeight="25.0" prefWidth="162.0" />
                   <TextField fx:id="emailField" layoutX="178.0" layoutY="188.0" prefHeight="25.0" prefWidth="189.0" />
                   <TextField fx:id="conhecimentoCarreiraField" layoutX="383.0" layoutY="188.0" />
-                  <Button fx:id="btnSalvar" layoutX="153.0" layoutY="363.0" onAction="#onSalvar" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Salvar" />
+                  <Button fx:id="btnSalvar" layoutX="150.0" layoutY="362.0" onAction="#onSalvar" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Salvar" />
                   <Button fx:id="btnCancelar" layoutX="56.0" layoutY="363.0" onAction="#onCancelar" style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-font-weight: bold;" text="Cancelar" />
 
                   
-                  <Label layoutX="284.0" layoutY="277.0" text="Como conheceu o Carreira Ideau?" />
+                  <Label layoutX="284.0" layoutY="277.0" text="Como conheceu o Carreira Ideau?" textFill="WHITE" />
 
                       
-                  <Label layoutX="177.0" layoutY="171.0" text="E-mail:" />
+                  <Label layoutX="177.0" layoutY="171.0" text="E-mail:" textFill="WHITE" />
 
                         
-                  <Label layoutX="16.0" layoutY="277.0" text="Responsável pelas Contratações:" />
+                  <Label layoutX="16.0" layoutY="277.0" text="Responsável pelas Contratações:" textFill="WHITE" />
 
                      
-                  <Label layoutX="606.0" layoutY="115.0" text="Possui setor RH?" />
+                  <Label layoutX="606.0" layoutY="115.0" text="Possui setor RH?" textFill="WHITE" />
 
                         
-                  <Label layoutX="553.0" layoutY="171.0" text="Nº Estagiários:" />
+                  <Label layoutX="553.0" layoutY="171.0" text="Nº Estagiários:" textFill="WHITE" />
 
                         
-                  <Label layoutX="14.0" layoutY="225.0" text="Nº Funcionários:" />
+                  <Label layoutX="14.0" layoutY="225.0" text="Nº Funcionários:" textFill="WHITE" />
 
                        
-                  <Label layoutX="15.0" layoutY="171.0" text="Ramo de Atividade:" />
+                  <Label layoutX="15.0" layoutY="171.0" text="Ramo de Atividade:" textFill="WHITE" />
 
                         
-                  <Label layoutX="502.0" layoutY="225.0" text="Telefones:" />
+                  <Label layoutX="502.0" layoutY="225.0" text="Telefones:" textFill="WHITE" />
 
-                  <Label layoutX="272.0" layoutY="225.0" text="Inscrição Estadual:" />
+                  <Label layoutX="272.0" layoutY="225.0" text="Inscrição Estadual:" textFill="WHITE" />
 
-                  <Label layoutX="384.0" layoutY="171.0" text="Filiais:" />
+                  <Label layoutX="384.0" layoutY="171.0" text="Filiais:" textFill="WHITE" />
 
-                  <Label layoutX="545.0" layoutY="64.0" text="CEP:" />
+                  <Label layoutX="545.0" layoutY="64.0" text="CEP:" textFill="#fafafa" />
 
-                  <Label layoutX="384.0" layoutY="64.0" text="CNPJ:" />
+                  <Label layoutX="384.0" layoutY="64.0" text="CNPJ:" textFill="WHITE" />
 
                        
-                  <Label layoutX="442.0" layoutY="115.0" text="Bairro:" />
+                  <Label layoutX="442.0" layoutY="115.0" text="Bairro:" textFill="WHITE" />
             <TextArea layoutX="284.0" layoutY="294.0" prefHeight="105.0" prefWidth="418.0" />
             </children>
         </AnchorPane>

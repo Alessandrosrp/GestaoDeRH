@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.configuracao.ConfiguracaoController">
    <children>
-      <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #84bfc3;">
+      <AnchorPane prefHeight="82.0" prefWidth="520.0" style="-fx-background-color: #1B4965;">
          <children>
             <ImageView fx:id="imagemregistro" fitHeight="48.0" fitWidth="65.0" layoutX="31.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -37,17 +37,17 @@
       <ComboBox fx:id="tipodevaga_combo" layoutX="277.0" layoutY="170.0" onAction="#tipodevaga_comboBox" prefWidth="150.0" />
       <ComboBox fx:id="curso_combo" layoutX="277.0" layoutY="214.0" onAction="#curso_comboBox" prefWidth="150.0" />
       <ComboBox fx:id="nivel_comboBox" layoutX="277.0" layoutY="256.0" onAction="#nivel_combo" prefWidth="150.0" />
-      <Button fx:id="registrarbtn" layoutX="92.0" layoutY="286.0" mnemonicParsing="false" onAction="#confirmar_configuracao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Confirmar" textFill="WHITE">
+      <Button fx:id="registrarbtn" layoutX="92.0" layoutY="286.0" mnemonicParsing="false" onAction="#confirmar_configuracao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Confirmar" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="excluir_configuracao_btn" layoutX="92.0" layoutY="319.0" mnemonicParsing="false" onAction="#excluir_configuracao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Excluir" textFill="WHITE">
+      <Button fx:id="excluir_configuracao_btn" layoutX="92.0" layoutY="319.0" mnemonicParsing="false" onAction="#excluir_configuracao" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Excluir" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
       </Button>
-      <Button fx:id="btn_sair" layoutX="92.0" layoutY="353.0" mnemonicParsing="false" onAction="#funcao_sair" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Sair" textFill="WHITE">
+      <Button fx:id="btn_sair" layoutX="92.0" layoutY="353.0" mnemonicParsing="false" onAction="#funcao_sair" prefHeight="26.0" prefWidth="336.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Sair" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
@@ -58,7 +58,7 @@
       <Label layoutX="277.0" layoutY="198.0" text="Curso" />
       <Label layoutX="277.0" layoutY="238.0" text="Nível" />
       <Label layoutX="277.0" layoutY="152.0" text="Tipo de vaga" />
-      <Button fx:id="Buscar" layoutX="196.0" layoutY="167.0" mnemonicParsing="false" onAction="#btn_buscar" prefHeight="8.0" prefWidth="59.0" style="-fx-background-color: #339194; -fx-font-weight: bold; -fx-text-fill: white;" text="Buscar" textFill="WHITE">
+      <Button fx:id="Buscar" layoutX="196.0" layoutY="167.0" mnemonicParsing="false" onAction="#btn_buscar" prefHeight="8.0" prefWidth="59.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Buscar" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
