@@ -5,11 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="381.0" style="-fx-background-color: #84bfc3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.mensagem.mensagemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="381.0" style="-fx-background-color: #1B4965;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.mensagem.mensagemController">
    <children>
-      <Button fx:id="mensagem_btn" layoutX="157.0" layoutY="74.0" mnemonicParsing="false" onAction="#mensagem_botao" style="-fx-background-color: #339194; -fx-text-fill: White; -fx-font-weight: bold;" text="Confirmar" />
-      <Label layoutX="105.0" layoutY="24.0" prefHeight="49.0" prefWidth="275.0" style="-fx-font-weight: bold;" text="Registrado com sucesso" textAlignment="CENTER">
+      <Button fx:id="mensagem_btn" layoutX="157.0" layoutY="74.0" mnemonicParsing="false" onAction="#mensagem_botao" style="-fx-background-color: #3E4C59; -fx-text-fill: White; -fx-font-weight: bold;" text="Confirmar" />
+      <Label layoutX="105.0" layoutY="24.0" prefHeight="49.0" prefWidth="275.0" style="-fx-font-weight: bold;" text="Registrado com sucesso" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
