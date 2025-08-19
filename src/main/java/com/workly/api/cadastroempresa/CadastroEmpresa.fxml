@@ -36,19 +36,19 @@
 
                   
                   <Label layoutX="262.0" layoutY="115.0" text="Cidade:" />
-                  <TextField fx:id="cidadeField" layoutX="384.0" layoutY="81.0" prefHeight="25.0" prefWidth="149.0" />
-                  <TextField fx:id="bairroField" layoutX="548.0" layoutY="188.0" prefHeight="25.0" prefWidth="162.0" />
-                  <TextField fx:id="cnpjField" layoutX="268.0" layoutY="242.0" prefHeight="25.0" prefWidth="212.0" />
-                  <TextField fx:id="cepField" layoutX="14.0" layoutY="242.0" prefHeight="25.0" prefWidth="232.0" />
-                  <TextField fx:id="filiaisField" layoutX="14.0" layoutY="294.0" prefHeight="25.0" prefWidth="247.0" />
+                  <TextField fx:id="cnpjField" layoutX="384.0" layoutY="81.0" prefHeight="25.0" prefWidth="149.0" />
+                  <TextField fx:id="numEstagiariosField" layoutX="548.0" layoutY="188.0" prefHeight="25.0" prefWidth="162.0" />
+                  <TextField fx:id="inscricaoEstadualField" layoutX="268.0" layoutY="242.0" prefHeight="25.0" prefWidth="212.0" />
+                  <TextField fx:id="numFuncionariosField" layoutX="14.0" layoutY="242.0" prefHeight="25.0" prefWidth="232.0" />
+                  <TextField fx:id="responsavelContratacoesField" layoutX="14.0" layoutY="294.0" prefHeight="25.0" prefWidth="247.0" />
                   <TextField fx:id="telefonesField" layoutX="502.0" layoutY="242.0" prefHeight="25.0" prefWidth="180.0" />
-                  <TextField fx:id="inscricaoEstadualField" layoutX="545.0" layoutY="81.0" />
-                  <TextField fx:id="numFuncionariosField" layoutX="14.0" layoutY="188.0" />
-                  <TextField fx:id="numEstagiariosField" layoutX="442.0" layoutY="132.0" />
+                  <TextField fx:id="cepField" layoutX="545.0" layoutY="81.0" />
+                  <TextField fx:id="ramoAtividadeField" layoutX="14.0" layoutY="188.0" />
+                  <TextField fx:id="bairroField" layoutX="442.0" layoutY="132.0" />
                   <CheckBox fx:id="possuiRhCheckBox" layoutX="642.0" layoutY="136.0" />
-                  <TextField fx:id="responsavelContratacoesField" layoutX="262.0" layoutY="132.0" prefHeight="25.0" prefWidth="162.0" />
+                  <TextField fx:id="cidadeField" layoutX="262.0" layoutY="132.0" prefHeight="25.0" prefWidth="162.0" />
                   <TextField fx:id="emailField" layoutX="178.0" layoutY="188.0" prefHeight="25.0" prefWidth="189.0" />
-                  <TextField fx:id="conhecimentoCarreiraField" layoutX="383.0" layoutY="188.0" />
+                  <TextField fx:id="FiliaisField" layoutX="383.0" layoutY="188.0" />
                   <Button fx:id="btnSalvar" layoutX="153.0" layoutY="363.0" onAction="#onSalvar" style="-fx-background-color: #339194; -fx-text-fill: white; -fx-font-weight: bold;" text="Salvar" />
                   <Button fx:id="btnCancelar" layoutX="56.0" layoutY="363.0" onAction="#onCancelar" style="-fx-background-color: #d9534f; -fx-text-fill: white; -fx-font-weight: bold;" text="Cancelar" />
 
@@ -86,7 +86,7 @@
 
                        
                   <Label layoutX="442.0" layoutY="115.0" text="Bairro:" />
-            <TextArea layoutX="284.0" layoutY="294.0" prefHeight="105.0" prefWidth="418.0" />
+            <TextArea fx:id="conhecimentoCarreiraField" layoutX="284.0" layoutY="294.0" prefHeight="105.0" prefWidth="418.0" />
             </children>
         </AnchorPane>
     </children>
