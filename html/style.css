@@ -1,0 +1,29 @@
+select.form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+select.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-color: white;
+  box-shadow: none;
+}
+
+.form-control {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 16px;
+  appearance: none;
+}
+
+.form-control option {
+  background-color: #fff; /* Fundo das opções */
+  color: #000;            /* Cor do texto das opções */
+}
+
+
