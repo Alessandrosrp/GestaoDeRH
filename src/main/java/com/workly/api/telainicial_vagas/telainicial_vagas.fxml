@@ -15,7 +15,7 @@
          <children>
             <TableView fx:id="vagasdisponiveis_table" layoutY="82.0" onMouseClicked="#vagasdisponiveis_tableMouseClicked" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: #1B4965;">
               <columns>
-                <TableColumn fx:id="colunaId" text="Id" />
+                <TableColumn fx:id="colunaId" style="-fx-background-color: #1B4965;" text="Id" />
                 <TableColumn fx:id="colunaUsuario" text="Nome" />
                 <TableColumn fx:id="colunaDescricao" text="Descrição" />
                 <TableColumn fx:id="colunaContato" text="Contato" />
