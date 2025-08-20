@@ -80,15 +80,15 @@ public class TelaInicialController {
 
             // Executar a consulta SQL
             try (Connection conn = Conexao.conectar()) {
-                vagasdisponiveis_table.setBackground(new Background(new BackgroundFill(Color.valueOf("#f2f2f2"), CornerRadii.EMPTY, Insets.EMPTY)));                
+                vagasdisponiveis_table.setBackground(new Background(new BackgroundFill(Color.valueOf("#ffffffff"), CornerRadii.EMPTY, Insets.EMPTY)));                
                 Statement stmt = conn.createStatement();
-                colunaId.setStyle("-fx-background-color: #84bfc3; -fx-text-fill: #333;");
-                colunaEmpresa.setStyle("-fx-background-color:  #84bfc3; -fx-text-fill: #333;");
-                colunaDescricao.setStyle("-fx-background-color:  #84bfc3; -fx-text-fill: #333;");
-                colunaContato.setStyle("-fx-background-color:  #84bfc3; -fx-text-fill: #333;");
-                colunaTipo.setStyle("-fx-background-color:  #84bfc3; -fx-text-fill: #333;");
-                colunaCurso.setStyle("-fx-background-color:  #84bfc3; -fx-text-fill: #333;");
-                colunaNivel.setStyle("-fx-background-color:  #84bfc3; -fx-text-fill: #333;");
+                colunaId.setStyle("-fx-background-color:  #1B4965; -fx-text-fill: #ffffffff;");
+                colunaEmpresa.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
+                colunaDescricao.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
+                colunaContato.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
+                colunaTipo.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
+                colunaCurso.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
+                colunaNivel.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
                 
                 colunaId.setPrefWidth(60);
                 colunaEmpresa.setPrefWidth(82);
@@ -137,16 +137,27 @@ public class TelaInicialController {
             VBox detalhesPanel = new VBox();
             detalhesPanel.setPadding(new Insets(10));
             detalhesPanel.setSpacing(10);
-            detalhesPanel.setStyle("-fx-background-color:  #84bfc3;");
+            detalhesPanel.setStyle("-fx-background-color:   #1B4965;");
 
 
             // Adicione as informações adicionais ao painel
-            Label empresaLabel = new Label("Empresa: " + v.getEmpresa());
+            Label empresaLabel = new Label("Nome: " + v.getEmpresa());
+            empresaLabel.setStyle("-fx-text-fill: white;");
+
             Label descricaoLabel = new Label("Descrição: " + v.getDescricao());
+            descricaoLabel.setStyle("-fx-text-fill: white;");
+
             Label contatoLabel = new Label("Contato: " + v.getContato());
+            contatoLabel.setStyle("-fx-text-fill: white;");
+
             Label tipoLabel = new Label("Tipo: " + v.getTipo());
+            tipoLabel.setStyle("-fx-text-fill: white;");
+
             Label cursoLabel = new Label("Curso: " + v.getCurso());
+            cursoLabel.setStyle("-fx-text-fill: white;");
+
             Label nivelLabel = new Label("Nível: " + v.getNivel());
+            nivelLabel.setStyle("-fx-text-fill: white;");
 
             Dimension tamanho = new Dimension(500, 600);
             detalhesPanel.setPrefSize(tamanho.width, tamanho.height);
