@@ -28,7 +28,7 @@ public class CadastroEmpresaController {
     private Button btnSalvar;
 
     @FXML
-    private TextField ceplField;
+    private TextField cepField;
 
     @FXML
     private TextField cidadeField;
@@ -64,7 +64,7 @@ public class CadastroEmpresaController {
     private TextField possuiRhTextfield;
 
     @FXML
-    private TextField ramoatvField;
+    private TextField ramoAtividadeField;
 
     @FXML
     private TextField responsavelField;
@@ -101,12 +101,12 @@ public class CadastroEmpresaController {
 
         String nome = nomeEmpresaField.getText();
         String cnpj = cnpjField.getText();
-        String cep = ceplField.getText();
+        String cep = cepField.getText();
         String endereco = enderecoField.getText();
         String cidade = cidadeField.getText();
         String bairro = bairroField.getText();
         String rh = possuiRhTextfield.getText();        
-        String ramo = ramoatvField.getText();
+        String ramo = ramoAtividadeField.getText();
         String email = emailField.getText();
         String filial = filialField.getText();
         String estagiario = estagiarioField.getText();
@@ -140,7 +140,6 @@ public class CadastroEmpresaController {
             stmt.setString(14, responsavel);
             stmt.setString(15, telefones);
             stmt.setString(16, como);
-            stmt.executeUpdate();
             System.out.println("Empresa cadastrada com sucesso!");
             }
         catch (SQLException e) {
@@ -148,11 +147,11 @@ public class CadastroEmpresaController {
         } finally {
             nomeEmpresaField.clear();
             cnpjField.clear();
-            ceplField.clear();
+            cepField.clear();
             enderecoField.clear();
             cidadeField.clear();
             bairroField.clear();
-            ramoatvField.clear();
+            ramoAtividadeField.clear();
             emailField.clear();
             filialField.clear();
             estagiarioField.clear();
