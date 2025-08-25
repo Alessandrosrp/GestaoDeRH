@@ -8,8 +8,13 @@ public class Conexao {
     public static Connection conectar() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/workly";
         String user = "root";
-        String password = "";
+        String password = "1234";
         
         return DriverManager.getConnection(url, user, password);
+    }
+
+    public static Connection getConnection() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getConnection'");
     }
 }

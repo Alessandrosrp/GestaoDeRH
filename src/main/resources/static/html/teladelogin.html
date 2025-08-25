@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Login</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <!-- css -->
+  <link rel="stylesheet" href="css/teladelogin.css">
+
+</head>
+
+<body>
+
+
+  <div class="background-text">CARREIRA IDEAU</div>
+
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <form>
+      <div class="form-group">
+        <label for="tipo">Tipo de login</label>
+        <select class="form-control" id="tipo" required>
+          <option value="">Selecione...</option>
+          <option value="Usuario">Sou um usuário</option>
+          <option value="Empresa">Sou uma empresa</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="usuario">Usuário</label>
+        <input type="text" class="form-control" id="usuario" placeholder="Digite seu usuário" required />
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required />
+      </div>
+
+      <button type="submit" class="btn btn-custom btn-block" onclick="fazerLogin(event)">Entrar</button>
+
+      <p class="text-center mt-3 mb-0">
+        <a href="#">Esqueceu a senha?</a>
+      </p>
+      <p class="text-center mt-1 mb-0">
+        <a href="teladecadastro.html">Criar conta</a>
+      </p>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- Js -->
+  <script src="js/teladelogin.js"></script>
+
+</body>
+
+</html>
