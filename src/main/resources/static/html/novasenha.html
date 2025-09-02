@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <title>Nova Senha</title>
+
+    <style>
+      body {
+        background: linear-gradient(to right, #1B4965, #3E4C59, #1B4965);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
+
+      .background-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10vw;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.05);
+        white-space: nowrap;
+        font-family: 'Montserrat', sans-serif;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .reset-box {
+        background: transparent;
+        padding: 40px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+        z-index: 1;
+        color: white;
+      }
+
+      .reset-box h2 {
+        margin-bottom: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-color: white;
+        box-shadow: none;
+      }
+
+      .btn-custom {
+        background-color: #ffffff;
+        color: #1b4965;
+        font-weight: bold;
+      }
+
+      .btn-custom:hover {
+        background-color: #f0f0f0;
+        color: #163d55;
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      a:hover {
+        color: white;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="background-text">CARREIRA IDEAU</div>
+
+    <div class="reset-box">
+      <h2>Nova Senha</h2>
+      <p class="text-center"></p>
+      <form>
+
+        <div class="form-group">
+          <label for="Usuario">Usuário</label>
+          <input type="text" class="form-control" id="usuario" placeholder="Digite o nome do usuário" required />
+
+
+        <div class="form-group">
+          <label for="novaSenha">Nova senha</label>
+          <input type="password" class="form-control" id="novaSenha" placeholder="Digite a nova senha" required />
+        </div>
+
+        <div class="form-group">
+          <label for="confirmarSenha">Confirmar senha</label>
+          <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme a nova senha" required />
+        </div>
+
+        <button type="submit" onclick="alterarSenha(event)" class="btn btn-custom btn-block">Redefinir Senha</button>
+
+        <p class="text-center mt-3 mb-0">
+          <a href="teladelogin.html">Sair</a>
+        </p>
+      </form>
+    </div>
+
+  </body>
+</html>

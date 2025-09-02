@@ -60,7 +60,7 @@ public class LoginRestController {
         resposta.put("sucesso", sucesso);
 
         if (sucesso) {
-            String rota = "Usuario".equals(tipo) ? "/html/teladecadastro.html" : "/html/telainicial.html";
+            String rota = "Usuario".equals(tipo) ? "/html/telainicial.html" : "/html/telainicial2.html";
             resposta.put("rota", rota);
         } else {
             resposta.put("mensagem", "Login inválido!");
