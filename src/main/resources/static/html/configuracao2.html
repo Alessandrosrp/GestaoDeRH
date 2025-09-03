@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurações</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1B4965;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background-color: #1B4965;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .header .logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .header .title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+ 
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .row .col {
+            flex: 1;
+        }
+
+        .buscar-btn {
+            padding: 6px 10px;
+            background-color: #1B4965;
+            color: white;
+            
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            
+        }
+
+        .buscar-btn:hover {
+            background-color: #163e53;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1B4965;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            
+        }
+
+        button:hover {
+            background-color: #163e53;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/6711/6711626.png" alt="Logo" class="logo">
+            <span class="title">Configurações</span>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFCzxivJXCZk0Kk8HsHujTO3Olx0ngytPrWw&s" alt="Sem Foto" class="profile">
+    </div>
+
+    <div class="container">
+
+        <div class="form-group">
+            <input type="text" placeholder="ID" id="id_txt">
+        </div>
+
+        <div class="form-group">
+            <div class="col">
+                <label for="usuario_txt">Empresa</label>
+                <input type="text" id="usuario_txt" placeholder="Empresa">
+            </div>
+            <button class="buscar-btn" onclick="btn_buscar2()">Buscar</button>
+        </div>
+
+        <div class="form-group">
+            <label for="descricao_txt">Sobre a vaga</label>
+            <input type="text" id="descricao_txt" placeholder="Descrição">
+        </div>
+
+        <div class="form-group">
+            <label for="contato_txt">Contato</label>
+            <input type="text" id="contato_txt" placeholder="Contato">
+        </div>
+
+        <div class="form-group">
+            <label for="tipodevaga_combo">Tipo de vaga</label>
+            <select id="tipodevaga_combo">
+                <option>Selecione</option>
+                <option>Estágio</option>
+                <option>Trabalho</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="curso_combo">Curso</label>
+            <select id="curso_combo">
+                <option>Selecione</option>
+                <option>Medicina</option>
+                <option>ADS</option>
+                <option>Engenharia</option>
+                <option>Outros</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nivel_comboBox">Nível</label>
+            <select id="nivel_comboBox">
+                <option>Selecione</option>
+                <option>1º Semestre</option>
+                <option>2º Semestre</option>
+                <option>3º Semestre</option>
+                <option>4º Semestre</option>
+                <option>5º Semestre</option>
+                <option>6º Semestre</option>
+                <option>7º Semestre</option>
+                <option>8º Semestre</option>
+                <option>9º Semestre</option>
+                <option>10º Semestre</option>
+            </select>
+        </div>
+
+        <button onclick="confirmar_configuracao()">Confirmar</button>
+        <button onclick="excluir_configuracao()">Excluir</button>
+        <button onclick="window.location.href='telainicial2.html'">Sair</button>
+
+    </div>
+
+    <script>
+        function btn_buscar2() {
+            alert('Função de busca...');
+        }
+
+        function confirmar_configuracao() {
+            alert('Configuração confirmada.');
+        }
+
+        function excluir_configuracao() {
+            alert('Configuração excluída.');
+        }
+
+        function funcao_sair() {
+            alert('Saindo...');
+        }
+    </script>
+
+</body>
+</html>

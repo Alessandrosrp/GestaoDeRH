@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Currículo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1B4965;
+      color: #333;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 40px auto;
+      display: flex;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      background-color: #1B4965;
+      color: white;
+      width: 280px;
+      padding: 40px 25px;
+      position: relative;
+    }
+
+    .sidebar img.background {
+      opacity: 0.05;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: 0;
+    }
+
+    .sidebar h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .main {
+      flex: 1;
+      padding: 40px 30px;
+      background-color: #f9f9f9;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .header img.icon {
+      height: 60px;
+    }
+
+    .photo {
+      text-align: right;
+    }
+
+    .photo span {
+      display: block;
+      font-size: 13px;
+      color: #1B4965;
+      margin-bottom: 8px;
+    }
+
+    .photo img {
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #ccc;
+    }
+
+    form label {
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #1B4965;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: #fff;
+      transition: border-color 0.3s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #1B4965;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .actions {
+      margin-top: 30px;
+      text-align: right;
+    }
+
+    .actions button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1B4965;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .actions button:first-child {
+      background-color: #aaa;
+      margin-right: 10px;
+    }
+
+    .actions button:hover {
+      opacity: 0.95;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar, .main {
+        width: 100%;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .photo {
+        text-align: left;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="sidebar">
+    <img src="imgens/logo_ideau.png" alt="Logo" class="background">
+    <h1>CURRÍCULO</h1>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <img src="imgens/curriculo.png" alt="Ícone" class="icon">
+      <div class="photo">
+        <span>Selecione sua foto:</span>
+        <img src="imgens/imagem sem foto.png" alt="Foto do Candidato">
+      </div>
+    </div>
+
+    <form>
+      <label for="usuario_txt">Candidato</label>
+      <input type="text" id="usuario_txt" placeholder="Digite seu nome completo">
+
+      <label for="contato_txt">Contato</label>
+      <input type="text" id="contato_txt" placeholder="Telefone ou E-mail">
+
+      <label for="vaga_comboBox">Vaga de Interesse</label>
+      <select id="vaga_comboBox">
+        <option value="">Selecione</option>
+        <option value="estagio">Estágio</option>
+        <option value="trabalho">Trabalho</option>
+      </select>
+
+      <label for="curso_comboBox">Curso</label>
+      <select id="curso_comboBox">
+        <option value="">Selecione</option>
+        <option>Medicina</option>
+        <option>ADS</option>
+        <option>Engenharia</option>
+        <option>Outros</option>
+      </select>
+
+      <label for="nivel_comboBox">Nível</label>
+      <select id="nivel_comboBox">
+        <option value="">Selecione</option>
+        <option>1º Semestre</option>
+        <option>2º Semestre</option>
+        <option>3º Semestre</option>
+        <option>4º Semestre</option>
+        <option>5º Semestre</option>
+        <option>6º Semestre</option>
+        <option>7º Semestre</option>
+        <option>8º Semestre</option>
+        <option>9º Semestre</option>
+        <option>10º Semestre</option>
+      </select>
+
+      <label for="descricao_txt">Fale sobre você</label>
+      <textarea id="descricao_txt" placeholder="Descreva sua experiência, habilidades ou objetivos..."></textarea>
+
+      <div class="actions">
+        <button type="button" onclick="window.location.href='telainicial.html'" >Sair</button>
+        <button type="button" onclick="registrar()">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function registrar() {
+    alert('Registro realizado com sucesso!');
+  }
+
+  function sair() {
+    alert('Saindo...');
+  }
+</script>
+
+</body>
+</html>
