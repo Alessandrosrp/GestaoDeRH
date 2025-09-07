@@ -16,7 +16,7 @@ async function fazerCadastro(event) {
   const dados = {
     tipo,
     email,
-    usuario: username, // ⚠ precisa bater com a entidade do backend
+    usuario: username,
     senha: password,
   };
 

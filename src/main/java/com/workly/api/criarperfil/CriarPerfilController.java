@@ -28,6 +28,9 @@ public class CriarPerfilController {
     private TextField emailTextField;
 
     @FXML
+    private TextField matri_text;
+
+    @FXML
     private ImageView imagemregistro;
 
     @FXML
@@ -53,6 +56,7 @@ public class CriarPerfilController {
         @FXML
         void registrar_perfil(ActionEvent event) throws IOException {
             String email = emailTextField.getText();
+            String matricula = matri_text.getText();
             String nome = usuario_text.getText();
             String senha = senhatext.getText();
             String confirmarSenha = confirmar_senha.getText();
@@ -61,11 +65,12 @@ public class CriarPerfilController {
             if (senha.equals(confirmarSenha)) {
                 if (tipoLogin != null && tipoLogin.equals("Usuario")) {
                     try (Connection conn = Conexao.conectar()) {
-                        String sql = "INSERT INTO usuario (email, nome, senha) VALUES (?, ?, ?)";
+                        String sql = "INSERT INTO usuario (email, nome, senha, matricula) VALUES (?, ?, ?, ?)";
                         PreparedStatement stmt = conn.prepareStatement(sql);
                         stmt.setString(1, email);
                         stmt.setString(2, nome);
                         stmt.setString(3, senha);
+                        stmt.setString(4, matricula);
 
                         int linhasAfetadas = stmt.executeUpdate();
                         if (linhasAfetadas > 0) {
@@ -79,11 +84,12 @@ public class CriarPerfilController {
                     }
                 } else if (tipoLogin != null && tipoLogin.equals("Empresa")) {
                     try (Connection conn = Conexao.conectar()) {
-                        String sql = "INSERT INTO empresa (email, nome, senha) VALUES (?, ?, ?)";
+                        String sql = "INSERT INTO empresa (email, nome, senha, matricula) VALUES (?, ?, ?, ?)";
                         PreparedStatement stmt = conn.prepareStatement(sql);
                         stmt.setString(1, email);
                         stmt.setString(2, nome);
                         stmt.setString(3, senha);
+                        stmt.setString(4, matricula);
 
                         int linhasAfetadas = stmt.executeUpdate();
                         if (linhasAfetadas > 0) {

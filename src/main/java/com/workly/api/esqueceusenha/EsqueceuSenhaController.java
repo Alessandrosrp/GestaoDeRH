@@ -31,6 +31,9 @@ public class EsqueceuSenhaController {
     private ImageView imagemregistro;
 
     @FXML
+    private TextField mat_text;
+
+    @FXML
     private Button sairbtn;
 
     @FXML
@@ -53,22 +56,30 @@ public class EsqueceuSenhaController {
         loginStage.close();
     }
 
-    @FXML
-    void confirmar_redefinicao(ActionEvent event) throws IOException {
-        String nome = usuario_text.getText();
-        String senha = senha_txt.getText();
-        String confirmar_senha = confirmar_senha_text.getText();
+@FXML
+void confirmar_redefinicao(ActionEvent event) throws IOException {
+    String nome = usuario_text.getText();
+    String senha = senha_txt.getText();
+    String matricula = mat_text.getText();
+    String confirmar_senha = confirmar_senha_text.getText();
 
-        if (!senha.equals(confirmar_senha)) {
-            System.out.println("Senhas diferentes!");
-            return;
-        }
+    if (!senha.equals(confirmar_senha)) {
+        System.out.println("Senhas diferentes!");
+        return;
+    }
 
-        boolean atualizou = false;
+    boolean atualizou = false;
 
-        try (Connection conn = Conexao.conectar()) {
-            conn.setAutoCommit(false);
+    try (Connection conn = Conexao.conectar()) {
+        conn.setAutoCommit(false);
 
+        // Verifica se a matrícula está correta
+        String sqlMatricula = "SELECT * FROM usuario WHERE matricula = ?";
+        var stmtMatricula = conn.prepareStatement(sqlMatricula);
+        stmtMatricula.setString(1, matricula);
+        var resultadoMatricula = stmtMatricula.executeQuery();
+
+        if (resultadoMatricula.next()) {
             // Atualiza usuario
             String sqlUsuario = "UPDATE usuario SET senha = ? WHERE nome = ?";
             var stmtUsuario = conn.prepareStatement(sqlUsuario);
@@ -91,13 +102,17 @@ public class EsqueceuSenhaController {
                 conn.rollback();
                 System.out.println("Nenhum usuário ou empresa encontrados com esse nome.");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("Matrícula incorreta!");
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 
-        usuario_text.clear();
-        senha_txt.clear();
-        confirmar_senha_text.clear();
+            usuario_text.clear();
+            senha_txt.clear();
+            mat_text.clear();
+            confirmar_senha_text.clear();
 
         if (atualizou) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem2.fxml"));

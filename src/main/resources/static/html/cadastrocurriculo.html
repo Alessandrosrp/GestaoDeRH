@@ -186,52 +186,51 @@
       </div>
     </div>
 
-    <form>
-      <label for="usuario_txt">Candidato</label>
-      <input type="text" id="usuario_txt" placeholder="Digite seu nome completo">
 
-      <label for="contato_txt">Contato</label>
-      <input type="text" id="contato_txt" placeholder="Telefone ou E-mail">
+<form id="form-curriculo" method="POST" action="http://localhost:3000/curriculo" enctype="multipart/form-data">
+  <label for="usuario_txt">Candidato</label>
+  <input type="text" id="usuario_txt" name="nome" placeholder="Digite seu nome completo">
 
-      <label for="vaga_comboBox">Vaga de Interesse</label>
-      <select id="vaga_comboBox">
-        <option value="">Selecione</option>
-        <option value="estagio">Estágio</option>
-        <option value="trabalho">Trabalho</option>
-      </select>
+  <label for="contato_txt">Contato</label>
+  <input type="text" id="contato_txt" name="contato" placeholder="Telefone ou E-mail">
 
-      <label for="curso_comboBox">Curso</label>
-      <select id="curso_comboBox">
-        <option value="">Selecione</option>
-        <option>Medicina</option>
-        <option>ADS</option>
-        <option>Engenharia</option>
-        <option>Outros</option>
-      </select>
+  <label for="vaga_comboBox">Vaga de Interesse</label>
+  <select id="vaga_comboBox" name="vaga">
+    <option value="">Selecione</option>
+    <option value="estagio">Estágio</option>
+    <option value="trabalho">Trabalho</option>
+  </select>
 
-      <label for="nivel_comboBox">Nível</label>
-      <select id="nivel_comboBox">
-        <option value="">Selecione</option>
-        <option>1º Semestre</option>
-        <option>2º Semestre</option>
-        <option>3º Semestre</option>
-        <option>4º Semestre</option>
-        <option>5º Semestre</option>
-        <option>6º Semestre</option>
-        <option>7º Semestre</option>
-        <option>8º Semestre</option>
-        <option>9º Semestre</option>
-        <option>10º Semestre</option>
-      </select>
+  <label for="curso_comboBox">Curso</label>
+  <select id="curso_comboBox" name="curso">
+    <option value="">Selecione</option>
+    <option>Medicina</option>
+    <option>ADS</option>
+    <option>Engenharia</option>
+    <option>Outros</option>
+  </select>
 
-      <label for="descricao_txt">Fale sobre você</label>
-      <textarea id="descricao_txt" placeholder="Descreva sua experiência, habilidades ou objetivos..."></textarea>
+  <label for="nivel_comboBox">Nível</label>
+  <select id="nivel_comboBox" name="nivel">
+    <option value="">Selecione</option>
+    <option>1º Semestre</option>
+    <option>2º Semestre</option>
+    <option>3º Semestre</option>
+    <!-- ... -->
+  </select>
 
-      <div class="actions">
-        <button type="button" onclick="window.location.href='telainicial.html'" >Sair</button>
-        <button type="button" onclick="registrar()">Registrar</button>
-      </div>
-    </form>
+  <label for="descricao_txt">Fale sobre você</label>
+  <textarea id="descricao_txt" name="descricao" placeholder="Descreva sua experiência, habilidades ou objetivos..."></textarea>
+
+  <label for="foto">Foto</label>
+  <input type="file" id="foto" name="foto">
+
+  <div class="actions">
+    <button type="reset">Limpar</button>
+      <button type="submit" class="btn btn-custom btn-block" onclick="fazerCad(event)">Entrar</button>
+
+  </div>
+</form>
   </div>
 </div>
 
@@ -244,6 +243,9 @@
     alert('Saindo...');
   }
 </script>
+
+<script src="js/novocurriculo.js"></script>
+
 
 </body>
 </html>
