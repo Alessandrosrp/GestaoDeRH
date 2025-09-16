@@ -187,6 +187,7 @@ public void initialize() {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     if (texto.isEmpty()) {
         // Recarrega todos os currículos se a caixa de pesquisa estiver vazia
         try (Connection conn = Conexao.conectar()) {
@@ -204,6 +205,8 @@ public void initialize() {
         } catch (SQLException e) {
             e.printStackTrace();
 =======
+=======
+>>>>>>> Stashed changes
      @FXML
     void cadvaga(ActionEvent event) {
         try {
@@ -219,6 +222,9 @@ public void initialize() {
             loginStage.close();
         } catch (IOException e) {
             System.out.println("Erro ao carregar a tela de cadastro de empresa: " + e.getMessage());
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
     }
