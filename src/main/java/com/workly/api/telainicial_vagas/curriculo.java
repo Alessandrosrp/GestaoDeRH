@@ -1,15 +1,28 @@
 package com.workly.api.telainicial_vagas;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "curriculo") // nome da tabela no banco
 public class curriculo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto incremento no banco
     private int id;
+
     private String usuario;
     private String descricao;
     private String contato;
     private String tipo;
     private String curso;
     private String nivel;
-    private String foto; // Adicionei o campo foto
+    private String foto;
 
+    // 🔹 Construtor vazio (obrigatório para o JPA)
+    public curriculo() {
+    }
+
+    // 🔹 Construtor completo (opcional, útil para testes ou inicialização)
     public curriculo(int id, String usuario, String descricao, String contato, String tipo, String curso, String nivel, String foto) {
         this.id = id;
         this.usuario = usuario;
@@ -18,9 +31,10 @@ public class curriculo {
         this.tipo = tipo;
         this.curso = curso;
         this.nivel = nivel;
-        this.foto = foto; // Adicionei o parâmetro foto
+        this.foto = foto;
     }
 
+    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -77,11 +91,11 @@ public class curriculo {
         this.nivel = nivel;
     }
 
-    public String getFoto() { // Adicionei o método getFoto
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) { // Adicionei o método setFoto
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 }

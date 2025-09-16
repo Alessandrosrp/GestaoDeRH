@@ -51,7 +51,7 @@ public class telainicialvagasController {
     private TextField pesquisa_txt;
 
     @FXML
-    private TableView<curriculo> vagasdisponiveis_table;
+    private TableView<curriculo> curriculodisponiveis_table;
     @FXML
     private TableColumn<curriculo, Integer> colunaId;
     @FXML
@@ -75,7 +75,7 @@ public void initialize() {
 
         // Executar a consulta SQL
         try (Connection conn = Conexao.conectar()) {
-            vagasdisponiveis_table.setBackground(new Background(new BackgroundFill(Color.valueOf("#ffffffff"), CornerRadii.EMPTY, Insets.EMPTY)));                
+            curriculodisponiveis_table.setBackground(new Background(new BackgroundFill(Color.valueOf("#ffffffff"), CornerRadii.EMPTY, Insets.EMPTY)));                
             Statement stmt = conn.createStatement();
             colunaId.setStyle("-fx-background-color:  #1B4965; -fx-text-fill: #ffffffff;");
             colunaUsuario.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
@@ -112,7 +112,7 @@ public void initialize() {
             colunaNivel.setCellValueFactory(new PropertyValueFactory<>("nivel"));
 
             // Atualizar a tabela com os dados
-            vagasdisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+            curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -125,8 +125,8 @@ public void initialize() {
 }
 
     @FXML
-    void vagasdisponiveis_tableMouseClicked(MouseEvent event) {
-        curriculo v = vagasdisponiveis_table.getSelectionModel().getSelectedItem();
+    void curriculodisponiveis_tableMouseClicked(MouseEvent event) {
+        curriculo v = curriculodisponiveis_table.getSelectionModel().getSelectedItem();
         if (v != null) {
             // Crie um novo painel para exibir as informações adicionais
             VBox detalhesPanel = new VBox();
@@ -200,7 +200,7 @@ void btn_pesquisavaga(ActionEvent event) {
                         rs.getString("nivel"), rs.getString("foto"));
                 dados.add(curr);
             }
-            vagasdisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+            curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -208,8 +208,8 @@ void btn_pesquisavaga(ActionEvent event) {
     }
 
     // Se tiver texto, filtra a tabela
-    vagasdisponiveis_table.setItems(FXCollections.observableArrayList(
-            vagasdisponiveis_table.getItems().stream()
+    curriculodisponiveis_table.setItems(FXCollections.observableArrayList(
+            curriculodisponiveis_table.getItems().stream()
                     .filter(curriculo -> 
                             curriculo.getUsuario().toLowerCase().contains(texto) || 
                             curriculo.getDescricao().toLowerCase().contains(texto) || 

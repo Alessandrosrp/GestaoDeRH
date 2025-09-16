@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.telainicial_vagas.telainicialvagasController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.telainicial_vagas.telainicialvagasController">
    <children>
       <AnchorPane prefHeight="413.0" prefWidth="600.0" style="-fx-background-color: #1B4965;">
          <children>
-            <TableView fx:id="vagasdisponiveis_table" layoutY="82.0" onMouseClicked="#vagasdisponiveis_tableMouseClicked" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: #1B4965;">
+            <TableView fx:id="curriculodisponiveis_table" layoutY="82.0" onMouseClicked="#curriculodisponiveis_tableMouseClicked" prefHeight="270.0" prefWidth="600.0" style="-fx-background-color: #1B4965;">
               <columns>
                 <TableColumn fx:id="colunaId" style="-fx-background-color: #1B4965;" text="Id" />
                 <TableColumn fx:id="colunaUsuario" text="Nome" />

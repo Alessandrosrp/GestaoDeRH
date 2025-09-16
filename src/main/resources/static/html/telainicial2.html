@@ -1,139 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carreira Ideau</title>
- 
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #1B4965;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
 
-    .container-main {
-      width: 90%;
-      max-width: 1000px;
-      background-color: #1B4965;
-      padding: 20px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      height: 90vh; 
-    }
-
-    h1 {
-      font-size: 36px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .search-bar {
-      display: flex;
-      margin-bottom: 10px;
-    }
-
-    .search-bar input {
-      flex: 1;
-      background-color: #3E4C59;
-      color: white;
-      font-weight: bold;
-      border: none;
-      padding: 8px 10px;
-      border-radius: 4px 0 0 4px;
-    }
-
-    .search-bar button {
-      background-color: #3E4C59;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 0 4px 4px 0;
-    }
-
-    .btn-custom {
-      background-color: #3E4C59;
-      color: white;
-      font-weight: bold;
-      margin: 5px;
-    }
-
-    .table-container {
-      flex: 1;
-      overflow-y: auto;
-      margin-bottom: 10px;
-    }
-
-    table {
-      width: 100%;
-      background-color: #1B4965;
-      color: white;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      border: 1px solid white;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #3E4C59;
-    }
-
-    tr:hover {
-      background-color: #2a5d80;
-    }
-
-    .btn-group-custom {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/telainicialcurriculos.css">
 </head>
-<body>
 
+<body>
   <div class="container-main">
     <h1>Carreira Ideau</h1>
 
-   
+    <!-- Barra de pesquisa -->
     <div class="search-bar">
-      <input type="text" id="pesquisa_txt" placeholder="Pesquise por curriculos disponíveis">
-      <button class="btn btn-custom" id="btn_pesquisa">Pesquisar</button>
+      <input type="text" id="pesquisa_txt" placeholder="Pesquise por vagas disponíveis">
+      <button type="button" class="btn btn-custom" id="btn_pesquisa">Pesquisar</button>
     </div>
 
-  
+    <!-- Tabela de vagas -->
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Contato</th>
-            <th>Tipo</th>
-            <th>Curso</th>
-            <th>Nível</th>
+            <th scope="col">Id</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Contato</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Curso</th>
+            <th scope="col">Nível</th>
           </tr>
         </thead>
         <tbody id="vagasdisponiveis_table">
-          
+          <!-- As vagas serão carregadas aqui via JS -->
         </tbody>
       </table>
     </div>
 
-   
+    <!-- Container para os cards -->
+    <div id="card-overlay"></div>
+
+    <!-- Botões -->
     <div class="btn-group-custom">
       <button type="button" class="btn btn-custom" onclick="window.location.href='teladecadastro.html'" id="btn_criarperfil">Criar Perfil</button>
       <button class="btn btn-custom" onclick="window.location.href='vagas.html'" id="btn_cadastrarcurriculo">Cadastrar Vaga</button>
@@ -141,11 +53,12 @@
       <button class="btn btn-custom" onclick="window.location.href='novasenha2.html'" id="btn_esqueceusenha">Redefinir senha</button>
       <button class="btn btn-custom" onclick="window.location.href='configuracao2.html'" id="btn_configuracoes">Configurações</button>
     </div>
-
   </div>
 
-  
+  <!-- Scripts -->
+  <script src="js/telainicialcurriculos.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
