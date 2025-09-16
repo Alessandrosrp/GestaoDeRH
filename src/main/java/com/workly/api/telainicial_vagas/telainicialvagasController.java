@@ -38,6 +38,8 @@ import com.workly.api.criarperfil.Conexao;
 public class telainicialvagasController {
 
     @FXML
+    private Button btn_cadastrarempresa;
+    @FXML
     private Button btn_cadastrarvaga;
     @FXML
     private Button btn_configuracoes;
@@ -183,10 +185,8 @@ public void initialize() {
         }
     }
 
-@FXML
-void btn_pesquisavaga(ActionEvent event) {
-    String texto = pesquisa_txt.getText().toLowerCase();
 
+<<<<<<< Updated upstream
     if (texto.isEmpty()) {
         // Recarrega todos os currículos se a caixa de pesquisa estiver vazia
         try (Connection conn = Conexao.conectar()) {
@@ -203,9 +203,51 @@ void btn_pesquisavaga(ActionEvent event) {
             curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
         } catch (SQLException e) {
             e.printStackTrace();
+=======
+     @FXML
+    void cadvaga(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/cadastroempresa/CadastroEmpresa.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+            stage.setTitle("Cadastro de Empresa");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) btn_configuracoes.getScene().getWindow();
+            loginStage.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar a tela de cadastro de empresa: " + e.getMessage());
+>>>>>>> Stashed changes
         }
-        return;
     }
+
+
+
+    @FXML
+    void btn_pesquisavaga(ActionEvent event) {
+        String texto = pesquisa_txt.getText().toLowerCase();
+
+        if (texto.isEmpty()) {
+            // Recarrega todos os currículos se a caixa de pesquisa estiver vazia
+            try (Connection conn = Conexao.conectar()) {
+                String query = "SELECT * FROM curriculo"; // Mudando "vagas" para "curriculo"
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                List<curriculo> dados = new ArrayList<>();
+                while (rs.next()) {
+                    curriculo curr = new curriculo(rs.getInt("id"), rs.getString("usuario"), rs.getString("descricao"),
+                            rs.getString("contato"), rs.getString("tipo"), rs.getString("curso"),
+                            rs.getString("nivel"), rs.getString("foto"));
+                    dados.add(curr);
+                }
+                vagasdisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
 
     // Se tiver texto, filtra a tabela
     curriculodisponiveis_table.setItems(FXCollections.observableArrayList(

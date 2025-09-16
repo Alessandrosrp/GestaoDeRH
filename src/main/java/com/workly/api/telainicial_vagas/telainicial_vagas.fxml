@@ -29,12 +29,13 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="btn_criarperfil" layoutX="23.0" layoutY="355.0" mnemonicParsing="false" onAction="#criarconta" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar perfil" />
-            <Button fx:id="btn_cadastrarvaga" layoutX="168.0" layoutY="355.0" mnemonicParsing="false" onAction="#cadastrarvaga" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Cadastrar vaga" />
-            <Button fx:id="btn_esqueceusenha" layoutX="313.0" layoutY="355.0" mnemonicParsing="false" onAction="#esqueceusenha" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Redefinir senha" />
-            <Button fx:id="btn_configuracoes" layoutX="463.0" layoutY="355.0" mnemonicParsing="false" onAction="#configuracoes" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Configurações" />
+            <Button fx:id="btn_criarperfil" layoutX="23.0" layoutY="355.0" mnemonicParsing="false" onAction="#criarconta" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar perfil" />
+            <Button fx:id="btn_cadastrarvaga" layoutX="125.0" layoutY="355.0" mnemonicParsing="false" onAction="#cadastrarvaga" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Cadastrar vaga" />
+            <Button fx:id="btn_esqueceusenha" layoutX="366.0" layoutY="355.0" mnemonicParsing="false" onAction="#esqueceusenha" prefHeight="30.0" prefWidth="110.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Redefinir senha" />
+            <Button fx:id="btn_configuracoes" layoutX="483.0" layoutY="355.0" mnemonicParsing="false" onAction="#configuracoes" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Configurações" />
             <TextField fx:id="pesquisa_txt" layoutX="1.0" layoutY="49.0" onAction="#pesquisa_texto" prefHeight="30.0" prefWidth="466.0" promptText="Pesquise por currículos disponíveis" style="-fx-background-color: #3E4C59; -fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-text-fill: white;" />
             <Button fx:id="btn_pesquisa" layoutX="474.0" layoutY="48.0" mnemonicParsing="false" onAction="#btn_pesquisavaga" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Pesquisar" />
+            <Button fx:id="btn_cadastrarempresa" layoutX="237.0" layoutY="355.0" mnemonicParsing="false" onAction="#cadvaga" prefHeight="30.0" prefWidth="122.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Cadastrar empresa" />
          </children>
       </AnchorPane>
    </children>

@@ -76,7 +76,7 @@ public class CadastroEmpresaController {
     void onCancelar(ActionEvent event) {
         try {
         
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial/telainicial.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial_vagas/telainicial_vagas.fxml"));
             Parent root = loader.load();
 
         

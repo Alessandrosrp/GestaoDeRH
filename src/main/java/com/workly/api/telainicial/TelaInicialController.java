@@ -51,8 +51,6 @@ public class TelaInicialController {
     private Button btn_pesquisa;
     @FXML
     private TextField pesquisa_txt;
-     @FXML
-    private Button btn_cadastrarempresa;
 
     @FXML
     private TableView<vagas> vagasdisponiveis_table;
@@ -267,24 +265,6 @@ public class TelaInicialController {
             System.out.println("Erro ao carregar a tela de curriculo: " + e.getMessage());
         }
     }
-     @FXML
-    void cadastrarempresa(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/cadastroempresa/CadastroEmpresa.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
-            stage.setTitle("Cadastro de Empresa");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-            Stage loginStage = (Stage) btn_configuracoes.getScene().getWindow();
-            loginStage.close();
-        } catch (IOException e) {
-            System.out.println("Erro ao carregar a tela de cadastro de empresa: " + e.getMessage());
-        }
-    }
-
 
     @FXML
     void criarconta(ActionEvent event) {
