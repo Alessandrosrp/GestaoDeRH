@@ -186,27 +186,25 @@ public void initialize() {
     }
 
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    if (texto.isEmpty()) {
-        // Recarrega todos os currículos se a caixa de pesquisa estiver vazia
-        try (Connection conn = Conexao.conectar()) {
-            String query = "SELECT * FROM curriculo"; // Mudando "vagas" para "curriculo"
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            List<curriculo> dados = new ArrayList<>();
-            while (rs.next()) {
-                curriculo curr = new curriculo(rs.getInt("id"), rs.getString("usuario"), rs.getString("descricao"),
-                        rs.getString("contato"), rs.getString("tipo"), rs.getString("curso"),
-                        rs.getString("nivel"), rs.getString("foto"));
-                dados.add(curr);
+        if (texto.isEmpty()) {
+            // Recarrega todos os currículos se a caixa de pesquisa estiver vazia
+            try (Connection conn = Conexao.conectar()) {
+                String query = "SELECT * FROM curriculo"; // Mudando "vagas" para "curriculo"
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                List<curriculo> dados = new ArrayList<>();
+                while (rs.next()) {
+                    curriculo curr = new curriculo(rs.getInt("id"), rs.getString("usuario"), rs.getString("descricao"),
+                            rs.getString("contato"), rs.getString("tipo"), rs.getString("curso"),
+                            rs.getString("nivel"), rs.getString("foto"));
+                    dados.add(curr);
+                }
+                curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
-        } catch (SQLException e) {
-            e.printStackTrace();
-=======
-=======
->>>>>>> Stashed changes
+        }
+
      @FXML
     void cadvaga(ActionEvent event) {
         try {
@@ -222,10 +220,7 @@ public void initialize() {
             loginStage.close();
         } catch (IOException e) {
             System.out.println("Erro ao carregar a tela de cadastro de empresa: " + e.getMessage());
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
         }
     }
 
@@ -248,7 +243,7 @@ public void initialize() {
                             rs.getString("nivel"), rs.getString("foto"));
                     dados.add(curr);
                 }
-                vagasdisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+                curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
