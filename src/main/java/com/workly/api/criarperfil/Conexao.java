@@ -8,7 +8,7 @@ public class Conexao {
     public static Connection conectar() throws SQLException {
         String url = "jdbc:mysql://localhost:3306/workly";
         String user = "root";
-        String password = "";
+        String password = "K@i1029384756";
         
         return DriverManager.getConnection(url, user, password);
     }
