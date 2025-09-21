@@ -6,3 +6,5 @@ import com.workly.api.curriculo.vagas;
 
 public interface VagaRepository extends JpaRepository<vagas, Integer> {
 }
+
+

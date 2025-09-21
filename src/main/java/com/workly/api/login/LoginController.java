@@ -44,7 +44,7 @@ public class LoginController {
 
     @FXML
     void initialize() {
-        define_combo.getItems().addAll("Empresa", "Usuario");
+        define_combo.getItems().addAll("Administrador", "Usuario");
     };
 
     @FXML
@@ -126,7 +126,7 @@ void fazerlogin(ActionEvent event) {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    } else if (tipoLogin.equals("Empresa")) {
+    } else if (tipoLogin.equals("Administrador")) {
         // Realizar autenticação de empresa
         try (Connection conn = Conexao.conectar()) {
             String sql = "SELECT * FROM empresa WHERE nome = ? AND senha = ?";

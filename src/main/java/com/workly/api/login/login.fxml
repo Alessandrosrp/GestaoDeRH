@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.login.LoginController">
+<VBox prefHeight="400.0" prefWidth="640.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.login.LoginController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #1B4965;" VBox.vgrow="ALWAYS">
       <children>
@@ -20,9 +20,9 @@
                   <Image url="@../imagens/logo2.png" />
                </image>
             </ImageView>
-            <TextField fx:id="usuariotxt" layoutX="222.0" layoutY="201.0" prefHeight="26.0" prefWidth="88.0" promptText="Usuário" />
-            <ComboBox fx:id="define_combo" layoutX="313.0" layoutY="201.0" onAction="#define_comboBox" prefHeight="26.0" prefWidth="112.0" />
-            <PasswordField fx:id="senhatxt" layoutX="222.0" layoutY="244.0" prefHeight="26.0" prefWidth="204.0" promptText="Senha" />
+            <TextField fx:id="usuariotxt" layoutX="212.0" layoutY="201.0" prefHeight="26.0" prefWidth="88.0" promptText="Usuário" />
+            <ComboBox fx:id="define_combo" layoutX="303.0" layoutY="201.0" onAction="#define_comboBox" prefHeight="26.0" prefWidth="125.0" />
+            <PasswordField fx:id="senhatxt" layoutX="212.0" layoutY="244.0" prefHeight="26.0" prefWidth="216.0" promptText="Senha" />
         
         <Button fx:id="campologin" layoutX="250.0" layoutY="280.0" mnemonicParsing="false" onAction="#fazerlogin" prefHeight="26.0" prefWidth="55.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Login" />
             <Button fx:id="campocriarconta" layoutX="312.0" layoutY="280.0" mnemonicParsing="false" onAction="#criarconta" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Criar conta" />
@@ -38,10 +38,10 @@
                   <Image url="@../imagens/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="224.0" layoutY="181.0" text="Usuário" textFill="WHITE" />
-            <Label layoutX="223.0" layoutY="226.0" text="Senha" textFill="WHITE" />
+            <Label layoutX="214.0" layoutY="181.0" text="Usuário" textFill="WHITE" />
+            <Label layoutX="213.0" layoutY="226.0" text="Senha" textFill="WHITE" />
             <Label layoutX="300.0" layoutY="368.0" text="©Workly" textAlignment="CENTER" textFill="WHITE" />
-            <Label layoutX="316.0" layoutY="181.0" text="Selecione seu acesso" textFill="WHITE" />
+            <Label layoutX="306.0" layoutY="181.0" text="Selecione seu acesso" textFill="WHITE" />
       </children>
     </AnchorPane>
   </children>

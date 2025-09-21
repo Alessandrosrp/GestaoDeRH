@@ -34,6 +34,8 @@ import java.awt.Dimension;
 
 
 import com.workly.api.criarperfil.Conexao;
+import com.workly.api.curriculo.vagas;
+
 
 public class telainicialvagasController {
 
@@ -52,9 +54,30 @@ public class telainicialvagasController {
     private Button btn_pesquisa;
     @FXML
     private TextField pesquisa_txt;
+    @FXML
+    private Button verempresasButton;
+
 
     @FXML
     private TableView<curriculo> curriculodisponiveis_table;
+    @FXML
+    private TableView<vagas> empresadisponiveis_table;
+
+    @FXML
+    private TableColumn<vagas, Integer> colunaId1;
+    @FXML
+    private TableColumn<vagas, String> colunaUsuario1;
+    @FXML
+    private TableColumn<vagas, String> colunaContato1;
+    @FXML
+    private TableColumn<vagas, String> colunaTipo1;
+    @FXML
+    private TableColumn<vagas, String> colunaCurso1;
+    @FXML
+    private TableColumn<vagas, String> colunaNivel1;
+    @FXML
+    private TableColumn<vagas, String> colunaDescricao1;
+
     @FXML
     private TableColumn<curriculo, Integer> colunaId;
     @FXML
@@ -72,40 +95,31 @@ public class telainicialvagasController {
     
 @FXML
 public void initialize() {
-    try {
-        // Criar uma consulta SQL
-        String query = "SELECT * FROM curriculo";
+    carregarCurriculos();
+    carregarVagas();
+}
 
-        // Executar a consulta SQL
+    private void carregarCurriculos() {
         try (Connection conn = Conexao.conectar()) {
-            curriculodisponiveis_table.setBackground(new Background(new BackgroundFill(Color.valueOf("#ffffffff"), CornerRadii.EMPTY, Insets.EMPTY)));                
+            String query = "SELECT * FROM curriculo";
             Statement stmt = conn.createStatement();
-            colunaId.setStyle("-fx-background-color:  #1B4965; -fx-text-fill: #ffffffff;");
-            colunaUsuario.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-            colunaDescricao.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-            colunaContato.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-            colunaTipo.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-            colunaCurso.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-            colunaNivel.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-            
-            colunaId.setPrefWidth(60);
-            colunaUsuario.setPrefWidth(82);
-            colunaDescricao.setPrefWidth(180);
-            colunaContato.setPrefWidth(80);
-            colunaTipo.setPrefWidth(74);
-            colunaCurso.setPrefWidth(72);
-            colunaNivel.setPrefWidth(73);
 
             ResultSet rs = stmt.executeQuery(query);
             List<curriculo> dados = new ArrayList<>();
             while (rs.next()) {
-                curriculo curr = new curriculo(rs.getInt("id"), rs.getString("usuario"), rs.getString("descricao"),
-                        rs.getString("contato"), rs.getString("tipo"), rs.getString("curso"),
-                        rs.getString("nivel"), rs.getString("foto"));
+                curriculo curr = new curriculo(
+                        rs.getInt("id"),
+                        rs.getString("usuario"),
+                        rs.getString("descricao"),
+                        rs.getString("contato"),
+                        rs.getString("tipo"),
+                        rs.getString("curso"),
+                        rs.getString("nivel"),
+                        rs.getString("foto"));
                 dados.add(curr);
             }
 
-            // Configurar as colunas da tabela
+            // Configurar colunas currículos
             colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
             colunaUsuario.setCellValueFactory(new PropertyValueFactory<>("usuario"));
             colunaDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
@@ -114,32 +128,63 @@ public void initialize() {
             colunaCurso.setCellValueFactory(new PropertyValueFactory<>("curso"));
             colunaNivel.setCellValueFactory(new PropertyValueFactory<>("nivel"));
 
-            // Atualizar a tabela com os dados
             curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void carregarVagas() {
+        try (Connection conn = Conexao.conectar()) {
+            String query = "SELECT * FROM vagas";
+            Statement stmt = conn.createStatement();
+
+            ResultSet rs = stmt.executeQuery(query);
+            List<vagas> dados = new ArrayList<>();
+            while (rs.next()) {
+                vagas vaga = new vagas(
+                        rs.getInt("id"),
+                        rs.getString("empresa"),  
+                        rs.getString("descricao"),
+                        rs.getString("contato"),
+                        rs.getString("tipo"),
+                        rs.getString("curso"),
+                        rs.getString("nivel"),
+                        rs.getString("foto")       
+                );
+                dados.add(vaga);
+            }
+
+            // Configurar colunas da tabela de vagas
+            colunaId1.setCellValueFactory(new PropertyValueFactory<>("id"));
+            colunaUsuario1.setCellValueFactory(new PropertyValueFactory<>("empresa")); 
+            colunaDescricao1.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+            colunaContato1.setCellValueFactory(new PropertyValueFactory<>("contato"));
+            colunaTipo1.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+            colunaCurso1.setCellValueFactory(new PropertyValueFactory<>("curso"));
+            colunaNivel1.setCellValueFactory(new PropertyValueFactory<>("nivel"));
+
+            empresadisponiveis_table.setItems(FXCollections.observableArrayList(dados));
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Erro ao executar a consulta SQL: " + e.getMessage());
+            System.out.println("Erro ao carregar vagas: " + e.getMessage());
         }
-    } catch (Exception e) {
-        e.printStackTrace();
-        System.out.println("Erro: " + e.getMessage());
     }
-}
 
     @FXML
-    void curriculodisponiveis_tableMouseClicked(MouseEvent event) {
-        curriculo v = curriculodisponiveis_table.getSelectionModel().getSelectedItem();
+    void empresadisponiveis_tableMouseClicked(MouseEvent event) {
+        vagas v = empresadisponiveis_table.getSelectionModel().getSelectedItem();
         if (v != null) {
             // Crie um novo painel para exibir as informações adicionais
             VBox detalhesPanel = new VBox();
             detalhesPanel.setPadding(new Insets(10));
             detalhesPanel.setSpacing(10);
-            detalhesPanel.setStyle("-fx-background-color:   #1B4965;"); // Adicionei essa linha
+            detalhesPanel.setStyle("-fx-background-color:   #1B4965;");
 
 
             // Adicione as informações adicionais ao painel
-            Label empresaLabel = new Label("Nome: " + v.getUsuario());
+            Label empresaLabel = new Label("Empresa: " + v.getEmpresa());
             empresaLabel.setStyle("-fx-text-fill: white;");
 
             Label descricaoLabel = new Label("Descrição: " + v.getDescricao());
@@ -162,8 +207,8 @@ public void initialize() {
         
             // Adicione a foto ao painel
             ImageView imagemView = new ImageView();
-            imagemView.setFitWidth(100);
-            imagemView.setFitHeight(100);
+            imagemView.setFitWidth(250);
+            imagemView.setFitHeight(250);
             imagemView.setPreserveRatio(true);
     
             // Carregue a foto do caminho armazenado no banco de dados
@@ -186,40 +231,138 @@ public void initialize() {
         }
     }
 
+        @FXML
+    void curriculodisponiveis_tableMouseClicked(MouseEvent event) {
+        curriculo curriculo = curriculodisponiveis_table.getSelectionModel().getSelectedItem();
+        if (curriculo != null) {
+            VBox detalhesPanel = new VBox();
+            detalhesPanel.setPadding(new Insets(10));
+            detalhesPanel.setSpacing(10);
+            detalhesPanel.setStyle("-fx-background-color: #1B4965;");
+
+            Label nomeLabel = new Label("Nome: " + curriculo.getUsuario());
+            nomeLabel.setStyle("-fx-text-fill: white;");
+
+            Label descricaoLabel = new Label("Descrição: " + curriculo.getDescricao());
+            descricaoLabel.setStyle("-fx-text-fill: white;");
+
+            Label contatoLabel = new Label("Contato: " + curriculo.getContato());
+            contatoLabel.setStyle("-fx-text-fill: white;");
+
+            Label tipoLabel = new Label("Tipo: " + curriculo.getTipo());
+            tipoLabel.setStyle("-fx-text-fill: white;");
+
+            Label cursoLabel = new Label("Curso: " + curriculo.getCurso());
+            cursoLabel.setStyle("-fx-text-fill: white;");
+
+            Label nivelLabel = new Label("Nível: " + curriculo.getNivel());
+            nivelLabel.setStyle("-fx-text-fill: white;");
+
+            Dimension tamanho = new Dimension(500, 600);
+            detalhesPanel.setPrefSize(tamanho.width, tamanho.height);
+        
+            // Adicione a foto ao painel
+            ImageView imagemView = new ImageView();
+            imagemView.setFitWidth(250);
+            imagemView.setFitHeight(250);
+            imagemView.setPreserveRatio(true);
+    
+            // Carregue a foto do caminho armazenado no banco de dados
+            String caminhoFoto = curriculo.getFoto();
+            if (caminhoFoto != null) {
+                imagemView.setImage(new Image("file:///" + caminhoFoto));
+            } else {
+                // Se a foto não existir, exiba uma imagem padrão
+                imagemView.setImage(new Image("/com/workly/api/imagens/semfoto.png"));
+            }
+    
+            detalhesPanel.getChildren().addAll(imagemView, nomeLabel, descricaoLabel, contatoLabel, tipoLabel, cursoLabel, nivelLabel);
+    
+            // Apresente o painel com as informações adicionais
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+            stage.setTitle("Detalhes da Vaga");
+            stage.setScene(new Scene(detalhesPanel, 450, 500)); // Adicionei largura e altura para a cena
+            stage.show();
+        }
+        }
+
 @FXML
 void btn_pesquisavaga(ActionEvent event) {
     String texto = pesquisa_txt.getText().toLowerCase();
 
+    // 🔹 Se a barra de pesquisa estiver vazia → recarrega os dois
     if (texto.isEmpty()) {
-        // Recarrega todos os currículos se a caixa de pesquisa estiver vazia
         try (Connection conn = Conexao.conectar()) {
-            String query = "SELECT * FROM curriculo"; // Mudando "vagas" para "curriculo"
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            List<curriculo> dados = new ArrayList<>();
-            while (rs.next()) {
-                curriculo curr = new curriculo(rs.getInt("id"), rs.getString("usuario"), rs.getString("descricao"),
-                        rs.getString("contato"), rs.getString("tipo"), rs.getString("curso"),
-                        rs.getString("nivel"), rs.getString("foto"));
-                dados.add(curr);
+            // Recarregar currículos
+            String queryCurriculos = "SELECT * FROM curriculo";
+            Statement stmt1 = conn.createStatement();
+            ResultSet rs1 = stmt1.executeQuery(queryCurriculos);
+            List<curriculo> dadosCurriculos = new ArrayList<>();
+            while (rs1.next()) {
+                curriculo curr = new curriculo(
+                        rs1.getInt("id"),
+                        rs1.getString("usuario"),
+                        rs1.getString("descricao"),
+                        rs1.getString("contato"),
+                        rs1.getString("tipo"),
+                        rs1.getString("curso"),
+                        rs1.getString("nivel"),
+                        rs1.getString("foto")
+                );
+                dadosCurriculos.add(curr);
             }
-            curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dados));
+            curriculodisponiveis_table.setItems(FXCollections.observableArrayList(dadosCurriculos));
+
+            // Recarregar empresas
+            String queryEmpresas = "SELECT * FROM vagas";
+            Statement stmt2 = conn.createStatement();
+            ResultSet rs2 = stmt2.executeQuery(queryEmpresas);
+            List<vagas> dadosEmpresas = new ArrayList<>();
+            while (rs2.next()) {
+                vagas vaga = new vagas(
+                        rs2.getInt("id"),
+                        rs2.getString("empresa"),
+                        rs2.getString("descricao"),
+                        rs2.getString("contato"),
+                        rs2.getString("tipo"),
+                        rs2.getString("curso"),
+                        rs2.getString("nivel"),
+                        rs2.getString("foto")
+                );
+                dadosEmpresas.add(vaga);
+            }
+            empresadisponiveis_table.setItems(FXCollections.observableArrayList(dadosEmpresas));
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return;
     }
 
-    // Se tiver texto, filtra a tabela
+    // 🔹 Se tiver texto, filtra as duas tabelas
     curriculodisponiveis_table.setItems(FXCollections.observableArrayList(
             curriculodisponiveis_table.getItems().stream()
-                    .filter(curriculo -> 
-                            curriculo.getUsuario().toLowerCase().contains(texto) || 
-                            curriculo.getDescricao().toLowerCase().contains(texto) || 
+                    .filter(curriculo ->
+                            curriculo.getUsuario().toLowerCase().contains(texto) ||
+                            curriculo.getDescricao().toLowerCase().contains(texto) ||
                             curriculo.getContato().toLowerCase().contains(texto) ||
-                            curriculo.getTipo().toLowerCase().contains(texto) || 
-                            curriculo.getCurso().toLowerCase().contains(texto) || 
+                            curriculo.getTipo().toLowerCase().contains(texto) ||
+                            curriculo.getCurso().toLowerCase().contains(texto) ||
                             curriculo.getNivel().toLowerCase().contains(texto)
+                    )
+                    .collect(Collectors.toList())
+    ));
+
+    empresadisponiveis_table.setItems(FXCollections.observableArrayList(
+            empresadisponiveis_table.getItems().stream()
+                    .filter(vaga ->
+                            vaga.getEmpresa().toLowerCase().contains(texto) ||
+                            vaga.getDescricao().toLowerCase().contains(texto) ||
+                            vaga.getContato().toLowerCase().contains(texto) ||
+                            vaga.getTipo().toLowerCase().contains(texto) ||
+                            vaga.getCurso().toLowerCase().contains(texto) ||
+                            vaga.getNivel().toLowerCase().contains(texto)
                     )
                     .collect(Collectors.toList())
     ));
@@ -319,6 +462,25 @@ void btn_pesquisavaga(ActionEvent event) {
         } catch (IOException e) {
             System.out.println("Erro ao carregar a tela esqueceu senha: " + e.getMessage());
         }
+    }
+
+    @FXML
+    void visualizaempresas(ActionEvent event) {
+                try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/empresascadastradas/empresascadastradas.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+            stage.setTitle("Esqueceu sua senha");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) btn_esqueceusenha.getScene().getWindow();
+            loginStage.close();
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar a tela esqueceu senha: " + e.getMessage());
+        }
+
     }
 
     @FXML

@@ -50,7 +50,7 @@ public class CriarPerfilController {
 
     @FXML
     void initialize() {
-        tipo_usuario.getItems().addAll("Empresa", "Usuario");
+        tipo_usuario.getItems().addAll( "Usuario");
     }
 
         @FXML

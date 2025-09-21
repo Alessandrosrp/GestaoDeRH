@@ -80,13 +80,6 @@ public class TelaInicialController {
             try (Connection conn = Conexao.conectar()) {
                 vagasdisponiveis_table.setBackground(new Background(new BackgroundFill(Color.valueOf("#ffffffff"), CornerRadii.EMPTY, Insets.EMPTY)));                
                 Statement stmt = conn.createStatement();
-                colunaId.setStyle("-fx-background-color:  #1B4965; -fx-text-fill: #ffffffff;");
-                colunaEmpresa.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-                colunaDescricao.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-                colunaContato.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-                colunaTipo.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-                colunaCurso.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
-                colunaNivel.setStyle("-fx-background-color:   #1B4965; -fx-text-fill: #ffffffff;");
                 
                 colunaId.setPrefWidth(60);
                 colunaEmpresa.setPrefWidth(82);
@@ -162,8 +155,8 @@ public class TelaInicialController {
         
             // Adicione a foto ao painel
             ImageView imagemView = new ImageView();
-            imagemView.setFitWidth(100);
-            imagemView.setFitHeight(100);
+            imagemView.setFitWidth(250);
+            imagemView.setFitHeight(250);
             imagemView.setPreserveRatio(true);
     
             // Carregue a foto do caminho armazenado no banco de dados

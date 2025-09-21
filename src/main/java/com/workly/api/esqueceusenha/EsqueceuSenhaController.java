@@ -103,7 +103,13 @@ void confirmar_redefinicao(ActionEvent event) throws IOException {
                 System.out.println("Nenhum usuário ou empresa encontrados com esse nome.");
             }
         } else {
-            System.out.println("Matrícula incorreta!");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/mensagem/mensagem4.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
+            stage.setTitle("Redefinição de Senha");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
         }
     } catch (SQLException e) {
         e.printStackTrace();

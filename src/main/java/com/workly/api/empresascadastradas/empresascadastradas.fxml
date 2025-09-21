@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1213.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.workly.api.empresascadastradas.empresascadastradasController">
+   <children>
+      <AnchorPane prefHeight="727.0" prefWidth="1213.0" style="-fx-background-color: #1B4965;">
+         <children>
+            <TableView fx:id="empresasdisponiveis_table" layoutX="6.0" layoutY="82.0" onMouseClicked="#empresasdisponiveis_tableMouseClicked" prefHeight="539.0" prefWidth="1199.0" style="ground-color: #1B4965;">
+              <columns>
+                <TableColumn fx:id="colunaId" prefWidth="25.0" style="ground-color: #1B4965;" text="Id" />
+                <TableColumn fx:id="nome" prefWidth="56.0" text="Nome" />
+                <TableColumn fx:id="cnpj" prefWidth="53.0" text="CNPJ" />
+                <TableColumn fx:id="cep" prefWidth="43.0" text="CEP" />
+                <TableColumn fx:id="endereco" prefWidth="62.0" text="Edereço" />
+                <TableColumn fx:id="cidade" prefWidth="55.0" text="Cidade" />
+                <TableColumn fx:id="bairro" prefWidth="57.0" text="Bairro" />
+                  <TableColumn fx:id="rh" prefWidth="38.0" text="RH" />
+                  <TableColumn fx:id="ramo" prefWidth="119.0" text="Ramo de atividade" />
+                  <TableColumn fx:id="email" prefWidth="45.0" text="Email" />
+                  <TableColumn fx:id="filial" prefWidth="45.0" text="Filial" />
+                  <TableColumn fx:id="estagiario" prefWidth="72.0" text="Estagiários" />
+                  <TableColumn fx:id="funcionarios" prefWidth="85.0" text="Funcionários" />
+                  <TableColumn fx:id="inscricao" prefWidth="66.0" text="Inscrição" />
+                  <TableColumn fx:id="responsavel" prefWidth="75.0" text="Respónsavel" />
+                  <TableColumn fx:id="telefone" prefWidth="63.0" text="Telefones" />
+                  <TableColumn fx:id="como" prefWidth="148.0" text="Como conheceu a Ideau" />
+                  <TableColumn fx:id="matricula" prefWidth="91.0" text="Matricula" />
+              </columns>
+            </TableView>
+            <Label layoutX="431.0" style="-fx-font-size: 36px; -fx-font-weight: bold;" text="Empresas cadastradas" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn_configuracoes" layoutX="540.0" layoutY="633.0" mnemonicParsing="false" onAction="#configuracoes" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Configurações" />
+            <TextField fx:id="pesquisa_txt" layoutX="7.0" layoutY="49.0" onAction="#pesquisa_texto" prefHeight="30.0" prefWidth="1066.0" promptText="Pesquise por empresas cadastradas" style="-fx-background-color: #3E4C59; -fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-text-fill: white;" />
+            <Button fx:id="btn_pesquisa" layoutX="1077.0" layoutY="49.0" mnemonicParsing="false" onAction="#btn_pesquisavaga" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Pesquisar" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

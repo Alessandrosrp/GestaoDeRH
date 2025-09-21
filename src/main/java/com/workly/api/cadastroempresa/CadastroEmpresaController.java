@@ -73,6 +73,9 @@ public class CadastroEmpresaController {
     private TextField telefonesField;
 
     @FXML
+    private TextField matricula;
+
+    @FXML
     void onCancelar(ActionEvent event) {
         try {
         
@@ -102,6 +105,7 @@ public class CadastroEmpresaController {
         String nome = nomeEmpresaField.getText();
         String cnpj = cnpjField.getText();
         String cep = cepField.getText();
+        String mat = matricula.getText();
         String endereco = enderecoField.getText();
         String cidade = cidadeField.getText();
         String bairro = bairroField.getText();
@@ -116,13 +120,13 @@ public class CadastroEmpresaController {
         String telefones = telefonesField.getText();
         String como = comoconheceuField.getText();
 
-        if  (nome.isEmpty() || cnpj.isEmpty() || cep.isEmpty() || endereco.isEmpty() || cidade.isEmpty() || bairro.isEmpty() || ramo.isEmpty() || email.isEmpty() || filial.isEmpty() || estagiario.isEmpty() || funcionarios.isEmpty() || inscricao.isEmpty() || responsavel.isEmpty() || telefones.isEmpty() || como.isEmpty()) {
+        if  (nome.isEmpty() || cnpj.isEmpty() || mat.isEmpty() || cep.isEmpty() || endereco.isEmpty() || cidade.isEmpty() || bairro.isEmpty() || ramo.isEmpty() || email.isEmpty() || filial.isEmpty() || estagiario.isEmpty() || funcionarios.isEmpty() || inscricao.isEmpty() || responsavel.isEmpty() || telefones.isEmpty() || como.isEmpty()) {
             System.out.println("Preencha todos os campos");
             return;
         }
         
         try (Connection conn = Conexao.conectar()) {
-            String sql = "INSERT INTO empresacadastrada (nome, cnpj, cep, endereco, cidade, bairro, rh, ramo, email, filial, estagiario, funcionarios, inscricao, responsavel, telefones, como) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO empresacadastrada (nome, cnpj, cep, endereco, cidade, bairro, rh, ramo, email, filial, estagiario, funcionarios, inscricao, responsavel, telefones, como, matricula) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             var stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
             stmt.setString(2, cnpj);
@@ -140,13 +144,23 @@ public class CadastroEmpresaController {
             stmt.setString(14, responsavel);
             stmt.setString(15, telefones);
             stmt.setString(16, como);
-            System.out.println("Empresa cadastrada com sucesso!");
+            stmt.setString(17, mat);
+
+            // Executa o insert
+            int linhasAfetadas = stmt.executeUpdate();
+
+            if (linhasAfetadas > 0) {
+                System.out.println("Empresa cadastrada com sucesso!");
+            } else {
+                System.out.println("Falha ao cadastrar empresa.");
+            }
             }
         catch (SQLException e) {
             e.printStackTrace();
         } finally {
             nomeEmpresaField.clear();
             cnpjField.clear();
+            matricula.clear();
             cepField.clear();
             enderecoField.clear();
             cidadeField.clear();
