@@ -1,64 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carreira Ideau</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carreira Ideau</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/telainicialcurriculos.css" />
+  </head>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <body>
+    <div class="container-main">
+      <h1>Carreira Ideau</h1>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/telainicialcurriculos.css">
-</head>
+      
+      <div class="search-bar">
+        <input
+          type="text"
+          id="pesquisa_txt"
+          placeholder="Pesquise por vagas disponíveis"
+        />
+        <button type="button" class="btn btn-custom" id="btn_pesquisa">
+          Pesquisar
+        </button>
+      </div>
 
-<body>
-  <div class="container-main">
-    <h1>Carreira Ideau</h1>
+     
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Contato</th>
+              <th scope="col">Tipo</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Nível</th>
+            </tr>
+          </thead>
+          <tbody id="vagasdisponiveis_table"></tbody>
+        </table>
+      </div>
 
-    <!-- Barra de pesquisa -->
-    <div class="search-bar">
-      <input type="text" id="pesquisa_txt" placeholder="Pesquise por vagas disponíveis">
-      <button type="button" class="btn btn-custom" id="btn_pesquisa">Pesquisar</button>
+      <div id="card-overlay"></div>
+
+      <!-- Grupo de botões -->
+      <div class="btn-group-custom">
+        <button
+          type="button"
+          class="btn btn-custom"
+          onclick="window.location.href='teladecadastro.html'"
+          id="btn_criarperfil"
+        >
+          Criar Perfil
+        </button>
+
+        <button
+          class="btn btn-custom"
+          onclick="window.location.href='vagas.html'"
+          id="btn_cadastrarvaga"
+        >
+          Cadastrar Vaga
+        </button>
+
+        <button
+          class="btn btn-custom"
+          onclick="window.location.href='cadastroempresa.html'"
+          id="btn_cadastrarempresa"
+        >
+          Cadastrar Empresa
+        </button>
+
+        <button
+          class="btn btn-custom"
+          onclick="window.location.href='empresascadastradas.html'"
+          id="btn_listarempresas"
+        >
+          Listar Empresas
+        </button>
+
+        <button
+          class="btn btn-custom"
+          onclick="window.location.href='redefinirsenha.html'"
+          id="btn_redefinirsenha"
+        >
+          Redefinir Senha
+        </button>
+
+        <button
+          class="btn btn-custom"
+          onclick="window.location.href='configuracao2.html'"
+          id="btn_configuracoes"
+        >
+          Configurações
+        </button>
+      </div>
     </div>
 
-    <!-- Tabela de vagas -->
-    <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Empresa</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Contato</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Curso</th>
-            <th scope="col">Nível</th>
-          </tr>
-        </thead>
-        <tbody id="vagasdisponiveis_table">
-          <!-- As vagas serão carregadas aqui via JS -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Container para os cards -->
-    <div id="card-overlay"></div>
-
-    <!-- Botões -->
-    <div class="btn-group-custom">
-      <button type="button" class="btn btn-custom" onclick="window.location.href='teladecadastro.html'" id="btn_criarperfil">Criar Perfil</button>
-      <button class="btn btn-custom" onclick="window.location.href='vagas.html'" id="btn_cadastrarcurriculo">Cadastrar Vaga</button>
-      <button class="btn btn-custom" onclick="window.location.href='cadastroempresa.html'" id="btn_cadastrarempresa">Cadastrar Empresa</button>
-      <button class="btn btn-custom" onclick="window.location.href='novasenha2.html'" id="btn_esqueceusenha">Redefinir senha</button>
-      <button class="btn btn-custom" onclick="window.location.href='configuracao2.html'" id="btn_configuracoes">Configurações</button>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="js/telainicialcurriculos.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <script src="js/telainicialcurriculos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

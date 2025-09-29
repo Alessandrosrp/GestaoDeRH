@@ -1,208 +1,219 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Cadastro Empresa</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #1B4965;
-            color: white;
-        }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        background-color: #1b4965;
+        color: white;
+      }
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .container {
-            width: 740px;
-            padding: 30px;
-            background-color: #1B4965;
-            position: relative;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-        }
+      .container {
+        width: 740px;
+        padding: 30px;
+        background-color: #1b4965;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
 
-        .background-logo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.1;
-            width: 100%;
-            height: 100%;
-            background-image: url('../imagens/logo2.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-        }
+      .background-logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+        width: 100%;
+        height: 100%;
+        background-image: url("../imagens/logo2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+      }
 
-        .form-content {
-            position: relative;
-            z-index: 1;
-        }
+      .form-content {
+        position: relative;
+        z-index: 1;
+      }
 
-        h1 {
-            text-align: center;
-            font-size: 27px;
-            margin-bottom: 30px;
-        }
+      h1 {
+        text-align: center;
+        font-size: 27px;
+        margin-bottom: 30px;
+      }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
 
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+      }
 
-        .row {
-            display: flex;
-            gap: 10px;
-        }
+      .row {
+        display: flex;
+        gap: 10px;
+      }
 
-        .row > div {
-            flex: 1;
-        }
+      .row > div {
+        flex: 1;
+      }
 
-        .buttons {
-            margin-top: 20px;
-            text-align: center;
-        }
+      .buttons {
+        margin-top: 20px;
+        text-align: center;
+      }
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            color: white;
-            cursor: pointer;
-            font-size: 14px;
-        }
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+      }
 
-        .btn-cancelar {
-            background-color: #d9534f;
-            margin-right: 10px;
-        }
+      .btn-cancelar {
+        background-color: #d9534f;
+        margin-right: 10px;
+      }
 
-        .btn-salvar {
-            background-color: #3E4C59;
-        }
+      .btn-salvar {
+        background-color: #3e4c59;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="background-logo"></div>
-        <div class="form-content">
-            <h1>CADASTRO EMPRESA</h1>
-
-            <div class="row">
-                <div>
-                    <label>Nome da Empresa:</label>
-                    <input type="text" id="nomeEmpresa">
-                </div>
-                <div>
-                    <label>CNPJ:</label>
-                    <input type="text" id="cnpj">
-                </div>
-                <div>
-                    <label>CEP:</label>
-                    <input type="text" id="cep">
-                </div>
-            </div>
-
-            <div class="row">
-                <div>
-                    <label>Endereço:</label>
-                    <input type="text" id="endereco">
-                </div>
-                <div>
-                    <label>Cidade:</label>
-                    <input type="text" id="cidade">
-                </div>
-                <div>
-                    <label>Bairro:</label>
-                    <input type="text" id="bairro">
-                </div>
-                <div>
-                    <label>Possui setor RH?</label>
-                    <input type="text" id="possuiRh">
-                </div>
-            </div>
-
-            <div class="row">
-                <div>
-                    <label>Ramo de Atividade:</label>
-                    <input type="text" id="ramoAtividade">
-                </div>
-                <div>
-                    <label>E-mail:</label>
-                    <input type="email" id="email">
-                </div>
-                <div>
-                    <label>Filiais:</label>
-                    <input type="text" id="filial">
-                </div>
-                <div>
-                    <label>Nº Estagiários:</label>
-                    <input type="text" id="estagiarios">
-                </div>
-            </div>
-
-            <div class="row">
-                <div>
-                    <label>Nº Funcionários:</label>
-                    <input type="text" id="funcionarios">
-                </div>
-                <div>
-                    <label>Inscrição Estadual:</label>
-                    <input type="text" id="inscricao">
-                </div>
-                <div>
-                    <label>Telefones:</label>
-                    <input type="text" id="telefones">
-                </div>
-            </div>
-
-            <div class="row">
-                <div>
-                    <label>Responsável pelas Contratações:</label>
-                    <input type="text" id="responsavel">
-                </div>
-                <div>
-                    <label>Como conheceu o Carreira Ideau?</label>
-                    <textarea id="comoconheceu" rows="5"></textarea>
-                </div>
-            </div>
-
-            <div class="buttons">
-                <button class="btn btn-cancelar" onclick="window.location.href='telainicial2.html'">Cancelar</button>
-                <button class="btn btn-salvar" onclick="onSalvar(event)">Salvar</button>
-                
-            </div>
-        </div>
-    </div>
-
     <script src="js/cadastroempresa.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="background-logo"></div>
+      <div class="form-content">
+        <h1>CADASTRO EMPRESA</h1>
 
-</body>
+        <div class="row">
+          <div>
+            <label>Nome da Empresa:</label>
+            <input type="text" id="nomeEmpresa" required />
+          </div>
+          <div>
+            <label>Matrícula:</label>
+            <input type="number" id="matricula" required />
+          </div>
+          <div>
+            <label>CNPJ:</label>
+            <input type="text" id="cnpj" required />
+          </div>
+          <div>
+            <label>CEP:</label>
+            <input type="text" id="cep" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Endereço:</label>
+            <input type="text" id="endereco" required />
+          </div>
+          <div>
+            <label>Cidade:</label>
+            <input type="text" id="cidade" required />
+          </div>
+          <div>
+            <label>Bairro:</label>
+            <input type="text" id="bairro" required />
+          </div>
+          <div>
+            <label>Possui setor RH?</label>
+            <input type="text" id="possuiRh" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Ramo de Atividade:</label>
+            <input type="text" id="ramoAtividade" />
+          </div>
+          <div>
+            <label>E-mail:</label>
+            <input type="email" id="email" />
+          </div>
+          <div>
+            <label>Filiais:</label>
+            <input type="text" id="filial" />
+          </div>
+          <div>
+            <label>Nº Estagiários:</label>
+            <input type="number" id="estagiarios" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Nº Funcionários:</label>
+            <input type="number" id="funcionarios" />
+          </div>
+          <div>
+            <label>Inscrição Estadual:</label>
+            <input type="number" id="inscricao" />
+          </div>
+          <div>
+            <label>Telefones:</label>
+            <input type="text" id="telefones" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Responsável pelas Contratações:</label>
+            <input type="text" id="responsavel" />
+          </div>
+          <div>
+            <label>Como conheceu o Carreira Ideau?</label>
+            <textarea id="comoconheceu" rows="5"></textarea>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button
+            class="btn btn-cancelar"
+            onclick="window.location.href='telainicial2.html'"
+          >
+            Cancelar
+          </button>
+          <button class="btn btn-salvar" onclick="onSalvar(event)">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
+
