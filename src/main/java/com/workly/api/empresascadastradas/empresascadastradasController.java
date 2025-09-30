@@ -131,7 +131,6 @@ public class empresascadastradasController {
                 dados.add(e);
             }
 
-            // Configurar colunas principais
             colunaId.setCellValueFactory(new PropertyValueFactory<>("id"));
             nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
             cnpj.setCellValueFactory(new PropertyValueFactory<>("cnpj"));

@@ -1,12 +1,10 @@
-
 function onSalvar(event) {
-
     if (event) {
         event.preventDefault();
     }
 
-
     const nome = document.getElementById("nomeEmpresa").value;
+    const matricula = document.getElementById("matricula").value;
     const cnpj = document.getElementById("cnpj").value;
     const cep = document.getElementById("cep").value;
     const endereco = document.getElementById("endereco").value;
@@ -25,9 +23,9 @@ function onSalvar(event) {
 
     console.log("DEBUG (FRONTEND): Coletando dados para cadastro de empresa...");
 
-    
     const dadosEmpresa = {
         nome,
+        matricula,
         cnpj,
         cep,
         endereco,
@@ -47,8 +45,7 @@ function onSalvar(event) {
 
     console.log("DEBUG (FRONTEND): Dados a serem enviados:", dadosEmpresa);
 
-    
-    fetch("http://localhost:8080/cadastrar-empresa", {
+    fetch("http://localhost:8080/empresacadastrada", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -56,9 +53,7 @@ function onSalvar(event) {
         body: JSON.stringify(dadosEmpresa)
     })
     .then(response => {
-        
         if (!response.ok) {
-            
             return response.json().then(errorData => {
                 throw new Error(errorData.mensagem || "Erro desconhecido");
             });
@@ -67,15 +62,10 @@ function onSalvar(event) {
     })
     .then(data => {
         console.log("DEBUG (BACKEND RESPONSE):", data);
-        
-       
+
         if (data.sucesso) {
-            alert(data.mensagem);
-            
-        
-            
+            alert(data.mensagem + (data.id ? " | ID: " + data.id : ""));
         } else {
-           
             alert("Erro ao cadastrar empresa: " + data.mensagem);
         }
     })
