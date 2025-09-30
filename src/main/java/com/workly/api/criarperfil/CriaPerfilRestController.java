@@ -14,17 +14,21 @@ public class CriaPerfilRestController {
 
     @PostMapping("/cadastro")
     public Map<String, Object> criarPerfil(@RequestBody Map<String, String> dados) {
-        System.out.println("==========================\nDEBUG: Entrou no método criarPerfil"); // 🔹 print inicial
+        System.out.println("==========================\nDEBUG: Entrou no método criarPerfil");
 
-        String tipo = dados.get("tipo");
         String email = dados.get("email");
-        String usuario = dados.get("usuario");
+        String nome = dados.get("nome");
         String senha = dados.get("senha");
+        String tipo = dados.get("tipo");
+        String matricula = dados.get("matricula");
+
+        
 
         System.out.println("\nDEBUG (BACKEND) tipo = " + tipo);
         System.out.println("DEBUG (BACKEND) email = " + email);
-        System.out.println("DEBUG (BACKEND) usuario = " + usuario);
+        System.out.println("DEBUG (BACKEND) nome = " + nome);
         System.out.println("DEBUG (BACKEND) senha = " + senha);
+        System.out.println("DEBUG (BACKEND) matricula = " + matricula);
 
         boolean sucesso = false;
 
@@ -35,9 +39,9 @@ public class CriaPerfilRestController {
 
             String sql;
             if ("Usuario".equalsIgnoreCase(tipo)) {
-                sql = "INSERT INTO usuario (email, nome, senha) VALUES (?, ?, ?)";
+                sql = "INSERT INTO usuario (email, nome, senha, tipo, matricula) VALUES (?, ?, ?, ?, ?)";
             } else if ("Empresa".equalsIgnoreCase(tipo)) {
-                sql = "INSERT INTO empresa (email, nome, senha) VALUES (?, ?, ?)";
+                sql = "INSERT INTO empresa (email, nome, senha, matricula) VALUES (?, ?, ?, ?)";
             } else {
                 System.out.println("\nDEBUG: Tipo inválido recebido: " + tipo);
                 throw new Exception("Tipo inválido");
@@ -45,8 +49,11 @@ public class CriaPerfilRestController {
 
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, email);
-            stmt.setString(2, usuario);
+            stmt.setString(2, nome);
             stmt.setString(3, senha);
+            stmt.setString(4, tipo);
+            stmt.setString(5, matricula);
+
 
             System.out.println("\nDEBUG: Executando INSERT -> " + sql);
             int linhas = stmt.executeUpdate();

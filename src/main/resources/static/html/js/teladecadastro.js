@@ -1,11 +1,15 @@
 async function fazerCadastro(event) {
   event.preventDefault();
 
-  const tipo = document.getElementById("tipo").value;
   const email = document.getElementById("email").value;
-  const username = document.getElementById("username").value;
+  const nome = document.getElementById("nome").value;
   const password = document.getElementById("password").value;
+  const tipo = document.getElementById("tipo").value;
   const confirmPassword = document.getElementById("confirm-password").value;
+  const mat = document.getElementById("mat").value;
+
+  console.log("DEBUG (FRONT CADASTRO):", mat);
+
 
   // Validação de senha
   if (password !== confirmPassword) {
@@ -14,13 +18,15 @@ async function fazerCadastro(event) {
   }
 
   const dados = {
-    tipo,
     email,
-    usuario: username,
+    nome,
     senha: password,
+    tipo,
+    matricula: mat,
   };
 
   console.log("DEBUG (FRONT CADASTRO):", dados);
+  
 
   try {
     const response = await fetch("http://localhost:8080/cadastro", {

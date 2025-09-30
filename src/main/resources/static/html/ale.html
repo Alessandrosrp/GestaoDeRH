@@ -7,9 +7,12 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
     />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
     <title>Cadastro - Confirmação de Conta</title>
 
     <!-- Script EmailJS -->
@@ -67,14 +70,29 @@
         background-color: rgba(255, 255, 255, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.3);
         color: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
       }
 
       .form-control::placeholder {
         color: rgba(255, 255, 255, 0.7);
       }
 
+      .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: white;
+        border-color: white;
+        box-shadow: none;
+      }
+
       .form-control option {
         background-color: #1B4965;
+        color: white;
+      }
+
+      .form-control option:checked {
+        background-color: #163d55;
         color: white;
       }
 
@@ -89,6 +107,15 @@
         color: #163d55;
       }
 
+      a {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      a:hover {
+        color: white;
+        text-decoration: underline;
+      }
+
       .hidden {
         display: none;
       }
@@ -97,83 +124,68 @@
     <script>
       // Inicializa EmailJS
       window.onload = function () {
-        emailjs.init("GvIi-4wTVAijBYoYP"); // seu userID
+        emailjs.init("GvIi-4wTVAijBYoYP"); 
       };
 
-      function cadastrarUsuario(event) {
+      function enviarEmail(event) {
         event.preventDefault();
 
-        const senha = document.getElementById("password").value;
-        const confirmar = document.getElementById("confirm-password").value;
-
-        if (senha !== confirmar) {
-          alert("As senhas não coincidem.");
-          return;
-        }
-
-        const usuario = {
-          tipo: document.getElementById("tipo").value,
+        // Coleta dados do formulário
+        const params = {
+          nome: document.getElementById("username").value,
           email: document.getElementById("email").value,
-          nome: document.getElementById("nome").value,
-          matricula: document.getElementById("matricula").value || null,
-          senha: senha
+          matricula: document.getElementById("matricula").value || "Não informado"
         };
 
-        console.log("DEBUG (FRONT CADASTRO):", usuario);
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
 
-        // 🔹 1. Salvar no backend
-        fetch("http://localhost:8080/cadastro", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(usuario),
-        })
-          .then(res => {
-            if (!res.ok) throw new Error("Erro ao salvar no backend");
-            return res.json();
-          })
-          .then(data => {
-            console.log("Usuário salvo:", data);
+        if (password !== confirmPassword) {
+            alert("As senhas não coincidem. Por favor, verifique.");
+            return;
+        }
 
-            // 🔹 2. Enviar e-mail de confirmação
-            return emailjs.send("service_r3r3cyh", "template_dbm1aqg", {
-              nome: usuario.nome,
-              email: usuario.email,
-              matricula: usuario.matricula || "Não informado",
-            });
-          })
+        // Envia e-mail
+        emailjs.send("service_r3r3cyh", "template_dbm1aqg", params)
           .then(() => {
             alert("Conta criada com sucesso! Um e-mail de confirmação foi enviado.");
           })
-          .catch(err => {
-            console.error("Erro:", err);
-            alert("Erro ao criar conta.");
+          .catch((error) => {
+            console.error("Erro ao enviar e-mail:", error);
+            alert("Ocorreu um erro ao enviar o e-mail.");
           });
       }
 
       // Mostrar/esconder matrícula
-      document.addEventListener("DOMContentLoaded", function () {
-        const tipoSelect = document.getElementById("tipo");
-        const matriculaGroup = document.getElementById("matricula-group");
-        const matriculaInput = document.getElementById("matricula");
+      document.addEventListener('DOMContentLoaded', function() {
+          const tipoSelect = document.getElementById('tipo');
+          const matriculaGroup = document.getElementById('matricula-group');
+          const matriculaInput = document.getElementById('matricula');
 
-        tipoSelect.addEventListener("change", function () {
-          if (this.value === "usuario") {
-            matriculaGroup.classList.remove("hidden");
-            matriculaInput.setAttribute("required", "required");
-          } else {
-            matriculaGroup.classList.add("hidden");
-            matriculaInput.removeAttribute("required");
+          tipoSelect.addEventListener('change', function () {
+              if (this.value === 'usuario') {
+                  matriculaGroup.classList.remove('hidden');
+                  matriculaInput.setAttribute('required', 'required');
+              } else {
+                  matriculaGroup.classList.add('hidden');
+                  matriculaInput.removeAttribute('required');
+              }
+          });
+
+          if (tipoSelect.value !== 'usuario') {
+             matriculaGroup.classList.add('hidden');
+             matriculaInput.removeAttribute('required');
           }
-        });
       });
     </script>
   </head>
   <body>
+
     <div class="background-text">CARREIRA IDEAU</div>
 
     <div class="register-box">
       <h2>Cadastro</h2>
-      <form onsubmit="cadastrarUsuario(event)">
+      <form onsubmit="enviarEmail(event)">
         <div class="form-group">
           <label for="tipo">Tipo de usuário</label>
           <select class="form-control" id="tipo" required>
@@ -189,8 +201,8 @@
         </div>
 
         <div class="form-group">
-          <label for="nome">Nome de usuário</label>
-          <input type="text" class="form-control" id="nome" placeholder="Digite seu nome de usuário" required />
+          <label for="username">Nome de usuário</label>
+          <input type="text" class="form-control" id="username" placeholder="Digite seu nome de usuário" required />
         </div>
 
         <div class="form-group hidden" id="matricula-group">
@@ -211,5 +223,24 @@
         <button type="submit" class="btn btn-custom btn-block">Criar conta</button>
       </form>
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/teladecadastro.js"></script>
+
   </body>
 </html>
