@@ -18,13 +18,13 @@ public class AlterarSenhaRest {
     public Map<String, Object> alterarSenha(@RequestBody Map<String, String> dados) {
         String usuario = dados.get("usuario");
         String matricula = dados.get("matricula");
-        String senha = dados.get("senha");       // senha atual informada
+        String senha = dados.get("senha");       
         String novaSenha = dados.get("novaSenha");
 
         boolean atualizou = false;
         String mensagem = "";
 
-        // 1) Verificação: senha informada = nova senha?
+        
         if (!senha.equals(novaSenha)) {
             mensagem = "A senha atual e a nova senha não conferem!";
             Map<String, Object> resposta = new HashMap<>();
@@ -34,7 +34,7 @@ public class AlterarSenhaRest {
         }
 
         try (Connection conn = com.workly.api.criarperfil.Conexao.conectar()) {
-            // 2) Se chegou aqui, senha == novaSenha → pode atualizar
+            
             String sql = "UPDATE usuario SET senha = ? WHERE nome = ? AND matricula = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, novaSenha);

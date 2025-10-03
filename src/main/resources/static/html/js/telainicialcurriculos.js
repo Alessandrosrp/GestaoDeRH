@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Função para buscar os currículos da API e preencher a tabela
+
 function carregarCurriculos(filtro = "") {
-  // usa query string apenas se houver filtro
+  
   const url = filtro 
     ? `http://localhost:8080/api/curriculos?filtro=${encodeURIComponent(filtro)}`
     : "http://localhost:8080/api/curriculos";

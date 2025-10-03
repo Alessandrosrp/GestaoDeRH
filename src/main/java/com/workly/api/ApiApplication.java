@@ -1,14 +1,8 @@
 package com.workly.api;
 
-import java.net.URI;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.event.EventListener;
-import org.springframework.stereotype.Component;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,10 +15,10 @@ public class ApiApplication extends Application {
     private static ConfigurableApplicationContext context;
 
     public static void main(String[] args) {
-		// Inicializa Spring Boot primeiro
+		
         context = SpringApplication.run(ApiApplication.class, args);
 		
-		// Lança JavaFX
+	
         launch(args);
     }
 
@@ -39,7 +33,7 @@ public class ApiApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-		// Abre navegador usando JavaFX
+		
     	getHostServices().showDocument("http://localhost:8080/html/teladelogin.html");
     }
 

@@ -3,11 +3,11 @@ package com.workly.api.curriculo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "vagas") // nome da tabela no banco
+@Table(name = "vagas") 
 public class vagas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto incremento no banco
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int id;
 
     private String empresa;
@@ -18,11 +18,11 @@ public class vagas {
     private String nivel;
     private String foto;
 
-    // 🔹 Construtor vazio (obrigatório para o JPA)
+   
     public vagas() {
     }
 
-    // 🔹 Construtor completo (opcional, útil para testes ou inicialização)
+    
     public vagas(int id, String empresa, String descricao, String contato, String tipo, String curso, String nivel, String foto) {
         this.id = id;
         this.empresa = empresa;
@@ -34,7 +34,7 @@ public class vagas {
         this.foto = foto;
     }
 
-    // Getters e Setters
+  
     public int getId() {
         return id;
     }

@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.workly.api.curriculo.vagas;
 
-import jakarta.persistence.criteria.CriteriaBuilder.In;
-
 import java.util.List;
 
 @RestController

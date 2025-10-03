@@ -105,7 +105,7 @@ void fazerlogin(ActionEvent event) {
             var resultado = stmt.executeQuery();
 
             if (resultado.next()) {
-                // Login bem-sucedido, abrir tela inicial
+                
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial/telainicial.fxml"));
                     Parent root = loader.load();
@@ -127,7 +127,7 @@ void fazerlogin(ActionEvent event) {
             e.printStackTrace();
         }
     } else if (tipoLogin.equals("Administrador")) {
-        // Realizar autenticação de empresa
+        
         try (Connection conn = Conexao.conectar()) {
             String sql = "SELECT * FROM empresa WHERE nome = ? AND senha = ?";
             var stmt = conn.prepareStatement(sql);
@@ -137,7 +137,7 @@ void fazerlogin(ActionEvent event) {
             var resultado = stmt.executeQuery();
 
             if (resultado.next()) {
-                // Login bem-sucedido, abrir tela inicial
+               
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/workly/api/telainicial_vagas/telainicial_vagas.fxml"));
                     Parent root = loader.load();

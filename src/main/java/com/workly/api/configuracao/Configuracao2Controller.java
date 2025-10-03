@@ -127,16 +127,16 @@ public class Configuracao2Controller {
                 stmt.setString(1, nomeUsuario);
                 ResultSet rs = stmt.executeQuery();
                 if (rs.next()) {
-                    // Exiba as informações do usuário na tela de configurações
+                    
                     id_txt.setText(rs.getString("id"));
                     descricao_txt.setText(rs.getString("descricao"));
                     contato_txt.setText(rs.getString("contato"));
                     tipodevaga_combo.getSelectionModel().select(rs.getString("tipo"));
                     curso_combo.getSelectionModel().select(rs.getString("curso"));
                     nivel_comboBox.getSelectionModel().select(rs.getString("nivel"));
-                    // ...
+                  
                 } else {
-                    // Exiba uma mensagem de erro se o usuário não for encontrado
+                    
                     System.out.println("Usuário não encontrado");
                 }
             } catch (SQLException e) {
@@ -167,7 +167,7 @@ public class Configuracao2Controller {
         stage.setTitle("Confirmação de exclusão");
         stage.setScene(new Scene(root));
 
-        // Adicione um botão de confirmação e um botão de cancelamento
+       
         Button mensagem_btn = (Button) root.lookup("#mensagem_btn");
         Button mensagem_btn1 = (Button) root.lookup("#mensagem_btn1");
 

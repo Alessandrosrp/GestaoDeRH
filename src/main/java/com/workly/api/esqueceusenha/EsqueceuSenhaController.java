@@ -73,21 +73,21 @@ void confirmar_redefinicao(ActionEvent event) throws IOException {
     try (Connection conn = Conexao.conectar()) {
         conn.setAutoCommit(false);
 
-        // Verifica se a matrícula está correta
+       
         String sqlMatricula = "SELECT * FROM usuario WHERE matricula = ?";
         var stmtMatricula = conn.prepareStatement(sqlMatricula);
         stmtMatricula.setString(1, matricula);
         var resultadoMatricula = stmtMatricula.executeQuery();
 
         if (resultadoMatricula.next()) {
-            // Atualiza usuario
+           
             String sqlUsuario = "UPDATE usuario SET senha = ? WHERE nome = ?";
             var stmtUsuario = conn.prepareStatement(sqlUsuario);
             stmtUsuario.setString(1, senha);
             stmtUsuario.setString(2, nome);
             int linhasUsuario = stmtUsuario.executeUpdate();
 
-            // Atualiza empresa
+            
             String sqlEmpresa = "UPDATE empresa SET senha = ? WHERE nome = ?";
             var stmtEmpresa = conn.prepareStatement(sqlEmpresa);
             stmtEmpresa.setString(1, senha);
@@ -127,9 +127,9 @@ void confirmar_redefinicao(ActionEvent event) throws IOException {
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
             stage.setTitle("Redefinição de Senha");
             stage.setScene(new Scene(root));
-            stage.showAndWait(); // espera até que a janela seja fechada
+            stage.showAndWait(); 
 
-            // agora que a janela de mensagem foi fechada, exibe a tela de login
+            
             FXMLLoader loaderLogin = new FXMLLoader(getClass().getResource("/com/workly/api/login/login.fxml"));
             Parent rootLogin = loaderLogin.load();
             Stage stageLogin = new Stage();
@@ -138,7 +138,6 @@ void confirmar_redefinicao(ActionEvent event) throws IOException {
             stageLogin.setScene(new Scene(rootLogin));
             stageLogin.show();
 
-            // fecha a tela "Esqueceu Senha"
             Stage esqueceuSenhaStage = (Stage) confirmar_btn.getScene().getWindow();
             esqueceuSenhaStage.close();
         }

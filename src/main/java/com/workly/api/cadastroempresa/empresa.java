@@ -3,11 +3,11 @@ package com.workly.api.cadastroempresa;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "empresacadastrada") // nome da tabela no banco
+@Table(name = "empresacadastrada") 
 public class empresa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto incremento no banco
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int id;
 
     private String nome;
@@ -28,11 +28,11 @@ public class empresa {
     private String como;
     private String matricula;
 
-    // 🔹 Construtor vazio (obrigatório para o JPA)
+    
     public empresa() {
     }
 
-    // 🔹 Construtor completo (opcional, útil para testes ou inicialização)
+   
     public empresa(int id, String nome, String cnpj, String cep, String endereco, String cidade, String bairro, String rh, String ramo, String email, String filial, String estagiario, String funcionarios, String inscricao, String responsavel, String telefones, String como, String matricula) {
         this.id = id;
         this.nome = nome;
@@ -54,7 +54,7 @@ public class empresa {
         this.matricula = matricula;
     }
 
-    // Getters e Setters
+  
     public int getId() {
         return id;
     }

@@ -2,72 +2,47 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <title>Cadastro Empresa</title>
+    <title>Cadastro Empresa - Carreira Ideau</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
       body {
         margin: 0;
-        padding: 0;
-        height: 100%;
         font-family: Arial, sans-serif;
         background-color: #1b4965;
         color: white;
-      }
-
-      body {
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        height: 100vh; 
       }
 
       .container {
-        width: 740px;
-        padding: 30px;
-        background-color: #1b4965;
-        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #2c3948;
         border-radius: 10px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        overflow: hidden;
-      }
-
-      .background-logo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0.1;
-        width: 100%;
-        height: 100%;
-        background-image: url("../imagens/logo2.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        z-index: 0;
-      }
-
-      .form-content {
-        position: relative;
-        z-index: 1;
+        
       }
 
       h1 {
         text-align: center;
-        font-size: 27px;
-        margin-bottom: 30px;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
       }
 
       label {
-        display: block;
-        margin-bottom: 5px;
         font-weight: bold;
+        font-size: 14px;
       }
 
-      input[type="text"],
-      input[type="email"],
-      input[type="number"],
+      input,
       textarea {
         width: 100%;
         padding: 8px;
@@ -77,143 +52,148 @@
         font-size: 14px;
       }
 
+      textarea {
+        resize: none;
+      }
+
       .row {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
       }
 
       .row > div {
         flex: 1;
+        min-width: 220px;
       }
 
       .buttons {
         margin-top: 20px;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
       }
 
-      .btn {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        font-weight: bold;
+      .buttons button {
+        background-color: #3e4c59;
         color: white;
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
         cursor: pointer;
-        font-size: 14px;
+      }
+
+      .buttons button:hover {
+        background-color: #566372;
       }
 
       .btn-cancelar {
         background-color: #d9534f;
-        margin-right: 10px;
       }
 
-      .btn-salvar {
-        background-color: #3e4c59;
+      .btn-cancelar:hover {
+        background-color: #c9302c;
       }
     </style>
     <script src="js/cadastroempresa.js"></script>
   </head>
   <body>
+
     <div class="container">
-      <div class="background-logo"></div>
-      <div class="form-content">
-        <h1>CADASTRO EMPRESA</h1>
+      
+      <h1>Cadastro de Empresa</h1>
 
-        <div class="row">
-          <div>
-            <label>Nome da Empresa:</label>
-            <input type="text" id="nomeEmpresa" required />
-          </div>
-          <div>
-            <label>Matrícula:</label>
-            <input type="number" id="matricula" required />
-          </div>
-          <div>
-            <label>CNPJ:</label>
-            <input type="text" id="cnpj" required />
-          </div>
-          <div>
-            <label>CEP:</label>
-            <input type="text" id="cep" required />
-          </div>
+      <div class="row">
+        <div>
+          <label>Nome da Empresa:</label>
+          <input type="text" id="nomeEmpresa" required />
         </div>
+        <div>
+          <label>Matrícula:</label>
+          <input type="number" id="matricula" required />
+        </div>
+        <div>
+          <label>CNPJ:</label>
+          <input type="text" id="cnpj" required />
+        </div>
+        <div>
+          <label>CEP:</label>
+          <input type="text" id="cep" required />
+        </div>
+      </div>
 
-        <div class="row">
-          <div>
-            <label>Endereço:</label>
-            <input type="text" id="endereco" required />
-          </div>
-          <div>
-            <label>Cidade:</label>
-            <input type="text" id="cidade" required />
-          </div>
-          <div>
-            <label>Bairro:</label>
-            <input type="text" id="bairro" required />
-          </div>
-          <div>
-            <label>Possui setor RH?</label>
-            <input type="text" id="possuiRh" />
-          </div>
+      <div class="row">
+        <div>
+          <label>Endereço:</label>
+          <input type="text" id="endereco" required />
         </div>
+        <div>
+          <label>Cidade:</label>
+          <input type="text" id="cidade" required />
+        </div>
+        <div>
+          <label>Bairro:</label>
+          <input type="text" id="bairro" required />
+        </div>
+        <div>
+          <label>Possui setor RH?</label>
+          <input type="text" id="possuiRh" />
+        </div>
+      </div>
 
-        <div class="row">
-          <div>
-            <label>Ramo de Atividade:</label>
-            <input type="text" id="ramoAtividade" />
-          </div>
-          <div>
-            <label>E-mail:</label>
-            <input type="email" id="email" />
-          </div>
-          <div>
-            <label>Filiais:</label>
-            <input type="text" id="filial" />
-          </div>
-          <div>
-            <label>Nº Estagiários:</label>
-            <input type="number" id="estagiarios" />
-          </div>
+      <div class="row">
+        <div>
+          <label>Ramo de Atividade:</label>
+          <input type="text" id="ramoAtividade" />
         </div>
+        <div>
+          <label>E-mail:</label>
+          <input type="email" id="email" />
+        </div>
+        <div>
+          <label>Filiais:</label>
+          <input type="text" id="filial" />
+        </div>
+        <div>
+          <label>Nº Estagiários:</label>
+          <input type="number" id="estagiarios" />
+        </div>
+      </div>
 
-        <div class="row">
-          <div>
-            <label>Nº Funcionários:</label>
-            <input type="number" id="funcionarios" />
-          </div>
-          <div>
-            <label>Inscrição Estadual:</label>
-            <input type="number" id="inscricao" />
-          </div>
-          <div>
-            <label>Telefones:</label>
-            <input type="text" id="telefones" />
-          </div>
+      <div class="row">
+        <div>
+          <label>Nº Funcionários:</label>
+          <input type="number" id="funcionarios" />
         </div>
+        <div>
+          <label>Inscrição Estadual:</label>
+          <input type="number" id="inscricao" />
+        </div>
+        <div>
+          <label>Telefones:</label>
+          <input type="text" id="telefones" />
+        </div>
+      </div>
 
-        <div class="row">
-          <div>
-            <label>Responsável pelas Contratações:</label>
-            <input type="text" id="responsavel" />
-          </div>
-          <div>
-            <label>Como conheceu o Carreira Ideau?</label>
-            <textarea id="comoconheceu" rows="5"></textarea>
-          </div>
+      <div class="row">
+        <div>
+          <label>Responsável pelas Contratações:</label>
+          <input type="text" id="responsavel" />
         </div>
+        <div>
+          <label>Como conheceu o Carreira Ideau?</label>
+          <textarea id="comoconheceu" rows="4"></textarea>
+        </div>
+      </div>
 
-        <div class="buttons">
-          <button
-            class="btn btn-cancelar"
-            onclick="window.location.href='telainicial2.html'"
-          >
-            Cancelar
-          </button>
-          <button class="btn btn-salvar" onclick="onSalvar(event)">
-            Salvar
-          </button>
-        </div>
+      <div class="buttons">
+        <button class="btn-cancelar" onclick="window.location.href='telainicial2.html'">
+          Cancelar
+        </button>
+        <button onclick="onSalvar(event)">Salvar</button>
       </div>
     </div>
   </body>
 </html>
-

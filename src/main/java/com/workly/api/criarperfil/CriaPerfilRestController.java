@@ -75,7 +75,7 @@ public class CriaPerfilRestController {
 
         if (sucesso) {
             resposta.put("mensagem", "Cadastro realizado com sucesso!");
-            resposta.put("rota", "/html/teladelogin.html"); // redireciona para tela de login
+            resposta.put("rota", "/html/teladelogin.html"); 
         } else {
             resposta.put("mensagem", "Erro ao criar perfil!");
         }
