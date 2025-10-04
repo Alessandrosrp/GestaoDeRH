@@ -40,9 +40,11 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="btn_configuracoes" layoutX="540.0" layoutY="633.0" mnemonicParsing="false" onAction="#configuracoes" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Configurações" />
+            <Button fx:id="btn_editar" layoutX="540.0" layoutY="633.0" mnemonicParsing="false" onAction="#editar" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Editar" />
             <TextField fx:id="pesquisa_txt" layoutX="7.0" layoutY="49.0" onAction="#pesquisa_texto" prefHeight="30.0" prefWidth="1066.0" promptText="Pesquise por empresas cadastradas" style="-fx-background-color: #3E4C59; -fx-prompt-text-fill: white; -fx-font-weight: bold; -fx-text-fill: white;" />
             <Button fx:id="btn_pesquisa" layoutX="1077.0" layoutY="49.0" mnemonicParsing="false" onAction="#btn_pesquisavaga" prefHeight="30.0" prefWidth="128.0" style="-fx-background-color: #3E4C59; -fx-text-fill: white; -fx-font-weight: bold;" text="Pesquisar" />
+            <Button fx:id="btn_voltar" layoutX="351.0" layoutY="633.0" mnemonicParsing="false" onAction="#voltar" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Voltar" />
+            <Button fx:id="btn_excluir" layoutX="731.0" layoutY="633.0" mnemonicParsing="false" onAction="#excluir" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #3E4C59; -fx-font-weight: bold; -fx-text-fill: white;" text="Excluir" />
          </children>
       </AnchorPane>
    </children>
