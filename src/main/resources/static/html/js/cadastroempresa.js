@@ -73,4 +73,8 @@ function onSalvar(event) {
         console.error("Erro na requisição:", error);
         alert("Ocorreu um erro ao tentar salvar a empresa. Por favor, tente novamente.");
     });
+    const campos = document.querySelectorAll("input, textarea");
+campos.forEach(campo => campo.value = "");
+
+    
 }

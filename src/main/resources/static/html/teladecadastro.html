@@ -143,6 +143,9 @@
           })
           .then(() => {
             alert("Conta criada com sucesso! Um e-mail de confirmação foi enviado.");
+            
+            // ✅ Redirecionamento para a tela de login
+            window.location.href = "teladelogin.html";
           })
           .catch(err => {
             console.error("Erro:", err);
@@ -208,7 +211,7 @@
         </div>
 
         <button type="submit" class="btn btn-custom btn-block">Criar conta</button>
-        <!-- Botão Voltar corrigido -->
+        <!-- Botão Voltar -->
         <button type="button" class="btn btn-custom btn-block" onclick="history.back()">Voltar</button>
       </form>
     </div>
