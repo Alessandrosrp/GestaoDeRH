@@ -13,22 +13,12 @@ import com.workly.api.mensagem.mensagem3Controller;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-<<<<<<< HEAD
 import javafx.scene.control.Button;
-=======
-
-import javafx.scene.control.Button;
-
->>>>>>> c894e01cb230bcf8f1b14a5f6090c6cf0a33695a
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-<<<<<<< HEAD
-=======
-import javafx.scene.control.ButtonType;
->>>>>>> c894e01cb230bcf8f1b14a5f6090c6cf0a33695a
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,10 +30,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-<<<<<<< HEAD
-=======
-
->>>>>>> c894e01cb230bcf8f1b14a5f6090c6cf0a33695a
 
 public class empresascadastradasController {
 

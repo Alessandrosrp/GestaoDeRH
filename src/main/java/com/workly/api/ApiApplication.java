@@ -17,7 +17,7 @@ public class ApiApplication extends Application {
     public static void main(String[] args) {
 		
         context = SpringApplication.run(ApiApplication.class, args);
-		
+	
 	
         launch(args);
     }
