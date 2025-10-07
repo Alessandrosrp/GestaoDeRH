@@ -1,5 +1,6 @@
 package com.workly.api.empresascadastradas;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,37 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 import com.workly.api.cadastroempresa.empresa;
 import com.workly.api.criarperfil.Conexao;
-import com.workly.api.mensagem.mensagem2Controller;
 import com.workly.api.mensagem.mensagem3Controller;
-
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-<<<<<<< Updated upstream
 import javafx.scene.control.Button;
-=======
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
->>>>>>> Stashed changes
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-<<<<<<< Updated upstream
-=======
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
->>>>>>> Stashed changes
 
 public class empresascadastradasController {
 
@@ -322,6 +313,7 @@ void empresasdisponiveis_tableMouseClicked(MouseEvent event) {
 
         // Exibe janela
         Stage stage = new Stage();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
         stage.setTitle("Editar Empresa");
         stage.setScene(new Scene(grid, 650, 750));
         stage.show();
