@@ -50,4 +50,6 @@ async function fazerCadastro(event) {
     console.error("Erro de conexão:", e);
     alert("Erro de conexão com o servidor!");
   }
+  window.location.href = "teladelogin.html";
+
 }
