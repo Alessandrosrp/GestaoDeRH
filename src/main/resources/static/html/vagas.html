@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela de Vagas</title>
 
-  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -152,7 +151,6 @@
       opacity: 0.95;
     }
 
-    
     @media (max-width: 768px) {
       .wrapper {
         flex-direction: column;
@@ -174,76 +172,68 @@
     }
   </style>
 </head>
+
 <body>
 
-<div class="wrapper">
-  
-  <div class="sidebar">
-    <img src="imagens/logo_ideau.png" alt="Logo" class="background">
-    <h1>VAGAS</h1>
-  </div>
-
- 
-  <div class="main">
-    <div class="header">
-      <img src="imagens/vaga.png" alt="Ícone" class="icon">
-      <div class="photo">
-        <span>Logo da empresa:</span>
-        <img src="imagens/imagem sem foto.png" alt="Logo da empresa">
-      </div>
+  <div class="wrapper">
+    <div class="sidebar">
+      <img src="imagens/logo_ideau.png" alt="Logo" class="background">
+      <h1>VAGAS</h1>
     </div>
 
-    <form>
-      <label for="empresa_txt">Empresa</label>
-      <input type="text" id="empresa_txt" placeholder="Digite o nome da empresa">
-
-      <label for="contato_txt">Contato</label>
-      <input type="text" id="contato_txt" placeholder="Telefone ou E-mail">
-
-      <label for="vaga_comboBox">Vaga de Interesse</label>
-      <select id="vaga_comboBox">
-        <option selected disabled>Selecione</option>
-        <option>Programador</option>
-        <option>Designer</option>
-        <option>Estágio</option>
-      </select>
-
-      <label for="curso_comboBox">Curso relacionado</label>
-      <select id="curso_comboBox">
-        <option selected disabled>Selecione</option>
-        <option>ADS</option>
-        <option>Engenharia</option>
-        <option>Administração</option>
-      </select>
-
-      <label for="nivel_comboBox">Nível da Vaga</label>
-      <select id="nivel_comboBox">
-        <option selected disabled>Selecione</option>
-        <option>Júnior</option>
-        <option>Pleno</option>
-        <option>Sênior</option>
-      </select>
-
-      <label for="descricao_txt">Descrição da Vaga</label>
-      <textarea id="descricao_txt" placeholder="Descreva a vaga, requisitos e perfil desejado..."></textarea>
-
-      <div class="actions">
-        <button type="button" onclick="window.location.href='telainicial2.html'">Sair</button>
-        <button type="button" onclick="registrar()">Registrar</button>
+    <div class="main">
+      <div class="header">
+        <img src="imagens/vaga.png" alt="Ícone" class="icon">
+        <div class="photo">
+          <span>Logo da empresa:</span>
+          <img src="imagens/imagem sem foto.png" alt="Logo da empresa">
+        </div>
       </div>
-    </form>
+
+      <form id="formVaga">
+        <label for="empresa_txt">Empresa</label>
+        <input type="text" id="empresa_txt" placeholder="Digite o nome da empresa">
+
+        <label for="contato_txt">Contato</label>
+        <input type="text" id="contato_txt" placeholder="Telefone ou E-mail">
+
+        <label for="vaga_comboBox">Vaga de Interesse</label>
+        <select id="vaga_comboBox">
+          <option selected disabled>Selecione</option>
+          <option>Programador</option>
+          <option>Designer</option>
+          <option>Estágio</option>
+        </select>
+
+        <label for="curso_comboBox">Curso relacionado</label>
+        <select id="curso_comboBox">
+          <option selected disabled>Selecione</option>
+          <option>ADS</option>
+          <option>Engenharia</option>
+          <option>Administração</option>
+        </select>
+
+        <label for="nivel_comboBox">Nível da Vaga</label>
+        <select id="nivel_comboBox">
+          <option selected disabled>Selecione</option>
+          <option>Júnior</option>
+          <option>Pleno</option>
+          <option>Sênior</option>
+        </select>
+
+        <label for="descricao_txt">Descrição da Vaga</label>
+        <textarea id="descricao_txt" placeholder="Descreva a vaga, requisitos e perfil desejado..."></textarea>
+
+        <div class="actions">
+          <button type="button" onclick="sair()">Sair</button>
+          <button type="button" onclick="registrar()">Registrar</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
-<script>
-  function registrar() {
-    alert('Vaga registrada com sucesso!');
-  }
-
-  function sair() {
-    alert('Saindo...');
-  }
-</script>
+  <!-- Script externo -->
+  <script src="js/vaga.js"></script>
 
 </body>
 </html>

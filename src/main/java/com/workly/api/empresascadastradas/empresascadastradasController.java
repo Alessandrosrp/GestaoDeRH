@@ -10,13 +10,10 @@ import java.util.List;
 import com.workly.api.cadastroempresa.empresa;
 import com.workly.api.criarperfil.Conexao;
 import com.workly.api.mensagem.mensagem3Controller;
-
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Button;
-
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -33,7 +30,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 
 public class empresascadastradasController {
 
@@ -317,6 +313,7 @@ void empresasdisponiveis_tableMouseClicked(MouseEvent event) {
 
         
         Stage stage = new Stage();
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/workly/api/imagens/logo.png")));
         stage.setTitle("Editar Empresa");
         stage.setScene(new Scene(grid, 650, 750));
         stage.show();
