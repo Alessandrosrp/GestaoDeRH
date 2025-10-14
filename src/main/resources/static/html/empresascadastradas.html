@@ -10,28 +10,22 @@
         background-color: #1b4965;
         color: white;
       }
-
       .container {
-        width: 100%;
-        max-width: 90%;
+        width: 90%;
         margin: 0 auto;
         padding: 20px;
-        overflow-x: hidden;
+        overflow-x: auto;
       }
-
       h1 {
         text-align: center;
         font-size: 36px;
-        font-weight: bold;
         margin-bottom: 20px;
       }
-
       .search-bar {
         display: flex;
         gap: 10px;
         margin-bottom: 15px;
       }
-
       .search-bar input {
         flex: 1;
         padding: 6px 10px;
@@ -40,13 +34,7 @@
         color: white;
         border: none;
         border-radius: 4px;
-        font-weight: bold;
       }
-
-      .search-bar input::placeholder {
-        color: #ddd;
-      }
-
       .search-bar button {
         background-color: #3e4c59;
         color: white;
@@ -56,55 +44,135 @@
         border-radius: 4px;
         cursor: pointer;
       }
-
       .search-bar button:hover {
         background-color: #566372;
       }
-
       table {
         width: 100%;
         border-collapse: collapse;
         background-color: #3e4c59;
-        color: white;
         font-size: 12px;
         table-layout: fixed;
         word-wrap: break-word;
       }
-
       table th,
       table td {
-        border: 6px solid #2c3948;
+        border: 4px solid #2c3948;
         padding: 5px;
         text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
       }
-
       table th {
         background-color: #2c3948;
         font-weight: bold;
       }
-
       .actions {
-        text-align: center;
-        margin-top: 20px;
         display: flex;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
+        margin-top: 20px;
       }
-
       .actions button {
         background-color: #3e4c59;
         color: white;
         font-weight: bold;
         border: none;
-        padding: 8px 16px;
+        padding: 6px 12px;
         border-radius: 4px;
         cursor: pointer;
       }
-
       .actions button:hover {
         background-color: #566372;
+      }
+      .edit-btn,
+      .delete-btn {
+        padding: 4px 8px;
+        margin: 0 2px;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .edit-btn {
+        background-color: #025c91;
+        color: black;
+      }
+      .edit-btn:hover {
+        background-color: #025c91;
+      }
+      .delete-btn {
+        background-color: #df1a1a;
+        color: white;
+      }
+      .delete-btn:hover {
+        background-color: #df1a1a;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background-color: #3e4c59;
+        padding: 20px;
+        border-radius: 8px;
+        width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-content h2 {
+        margin-top: 0;
+        text-align: center;
+      }
+      .modal-content label,
+      .modal-content p {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      .modal-content input {
+        width: 100%;
+        padding: 6px;
+        margin-top: 4px;
+        border-radius: 4px;
+        border: none;
+        background-color: #566372;
+        color: white;
+      }
+      .modal-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      .modal-buttons button {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .save-btn {
+        background-color: #2a9d8f;
+        color: white;
+      }
+      .save-btn:hover {
+        background-color: #21867a;
+      }
+      .cancel-btn {
+        background-color: #e07b39;
+        color: white;
+      }
+      .cancel-btn:hover {
+        background-color: #c36b2e;
       }
     </style>
   </head>
@@ -140,82 +208,208 @@
             <th>Inscrição</th>
             <th>Responsável</th>
             <th>Telefones</th>
-            <th>Como conheceu a Ideau</th>
+            <th>Como</th>
             <th>Matrícula</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
 
       <div class="actions">
-        <button
-          type="button"
-          onclick="window.location.href='telainicial2.html'"
-        >
+        <button onclick="window.location.href='telainicial2.html'">
           Cancelar
         </button>
-        <button
-          type="button"
-          onclick="window.location.href='configuracao2.html'"
-        >
+        <button onclick="window.location.href='configuracao2.html'">
           Configurações
         </button>
       </div>
     </div>
 
+    <div id="modal" class="modal"></div>
+
     <script>
+      const API_URL = "http://localhost:8080/empresas";
+
       async function carregarEmpresas() {
         try {
-          const response = await fetch("http://localhost:8080/listar-empresas");
-          if (!response.ok) {
-            throw new Error("Erro ao carregar empresas");
-          }
-
-          const empresas = await response.json();
-
+          const res = await fetch(API_URL);
+          const empresas = await res.json();
           const tbody = document.querySelector("#empresasTable tbody");
           tbody.innerHTML = "";
 
           empresas.forEach((emp) => {
-            const row = document.createElement("tr");
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${emp.id}</td>
+              <td>${emp.nome}</td>
+              <td>${emp.cnpj}</td>
+              <td>${emp.cep}</td>
+              <td>${emp.endereco}</td>
+              <td>${emp.cidade}</td>
+              <td>${emp.bairro}</td>
+              <td>${emp.rh}</td>
+              <td>${emp.ramo}</td>
+              <td>${emp.email}</td>
+              <td>${emp.filial}</td>
+              <td>${emp.estagiario}</td>
+              <td>${emp.funcionarios}</td>
+              <td>${emp.inscricao}</td>
+              <td>${emp.responsavel}</td>
+              <td>${emp.telefones}</td>
+              <td>${emp.como}</td>
+              <td>${emp.matricula}</td>
+              <td>
+                <button class="edit-btn" onclick="abrirModal(${emp.id}); event.stopPropagation()">Editar</button>
+                <button class="delete-btn" onclick="excluirEmpresa(${emp.id}); event.stopPropagation()">Excluir</button>
+              </td>
+            `;
 
-            row.innerHTML = `
-            <td>${emp.id || ""}</td>
-            <td>${emp.nome || ""}</td>
-            <td>${emp.cnpj || ""}</td>
-            <td>${emp.cep || ""}</td>
-            <td>${emp.endereco || ""}</td>
-            <td>${emp.cidade || ""}</td>
-            <td>${emp.bairro || ""}</td>
-            <td>${emp.rh || ""}</td>
-            <td>${emp.ramo || ""}</td>
-            <td>${emp.email || ""}</td>
-            <td>${emp.filial || ""}</td>
-            <td>${emp.estagiario || ""}</td>
-            <td>${emp.funcionarios || ""}</td>
-            <td>${emp.inscricao || ""}</td>
-            <td>${emp.responsavel || ""}</td>
-            <td>${emp.telefones || ""}</td>
-            <td>${emp.como || ""}</td>
-            <td>${emp.matricula || ""}</td>
-          `;
-
-            tbody.appendChild(row);
+            tr.addEventListener("click", () => abrirDetalhes(emp.id));
+            tbody.appendChild(tr);
           });
-        } catch (error) {
-          console.error("Erro:", error);
-          alert("Não foi possível carregar as empresas. Verifique o backend.");
+        } catch (err) {
+          console.error(err);
+          alert("Erro ao carregar empresas.");
         }
       }
 
       function pesquisar() {
         const termo = document.getElementById("pesquisa").value.toLowerCase();
         const linhas = document.querySelectorAll("#empresasTable tbody tr");
-
         linhas.forEach((linha) => {
           const nome = linha.cells[1].textContent.toLowerCase();
           linha.style.display = nome.includes(termo) ? "" : "none";
         });
+      }
+
+      async function abrirModal(id) {
+        const res = await fetch(`${API_URL}`);
+        const empresas = await res.json();
+        const empresa = empresas.find((e) => e.id == id);
+        if (!empresa) return;
+
+        const modal = document.getElementById("modal");
+        modal.innerHTML = `
+          <div class="modal-content">
+            <h2>Editar Empresa</h2>
+            <form id="editForm">
+              <input type="hidden" id="empresaId" value="${empresa.id}" />
+              <label>Nome: <input type="text" id="nome" value="${empresa.nome}" /></label>
+              <label>Matrícula: <input type="text" id="matricula" value="${empresa.matricula}" /></label>
+              <label>CNPJ: <input type="text" id="cnpj" value="${empresa.cnpj}" /></label>
+              <label>CEP: <input type="text" id="cep" value="${empresa.cep}" /></label>
+              <label>Endereço: <input type="text" id="endereco" value="${empresa.endereco}" /></label>
+              <label>Cidade: <input type="text" id="cidade" value="${empresa.cidade}" /></label>
+              <label>Bairro: <input type="text" id="bairro" value="${empresa.bairro}" /></label>
+              <label>RH: <input type="text" id="rh" value="${empresa.rh}" /></label>
+              <label>Ramo: <input type="text" id="ramo" value="${empresa.ramo}" /></label>
+              <label>Email: <input type="text" id="email" value="${empresa.email}" /></label>
+              <label>Filial: <input type="text" id="filial" value="${empresa.filial}" /></label>
+              <label>Estagiários: <input type="text" id="estagiario" value="${empresa.estagiario}" /></label>
+              <label>Funcionários: <input type="text" id="funcionarios" value="${empresa.funcionarios}" /></label>
+              <label>Inscrição: <input type="text" id="inscricao" value="${empresa.inscricao}" /></label>
+              <label>Responsável: <input type="text" id="responsavel" value="${empresa.responsavel}" /></label>
+              <label>Telefones: <input type="text" id="telefones" value="${empresa.telefones}" /></label>
+              <label>Como: <input type="text" id="como" value="${empresa.como}" /></label>
+              <div class="modal-buttons">
+                <button type="button" class="save-btn" onclick="salvarEdicao()">Salvar</button>
+                <button type="button" class="cancel-btn" onclick="fecharModal()">Cancelar</button>
+              </div>
+            </form>
+          </div>
+        `;
+        modal.style.display = "flex";
+      }
+
+      async function abrirDetalhes(id) {
+        const res = await fetch(`${API_URL}`);
+        const empresas = await res.json();
+        const empresa = empresas.find((e) => e.id == id);
+        if (!empresa) return;
+
+        const modal = document.getElementById("modal");
+        modal.innerHTML = `
+          <div class="modal-content">
+            <h2>Detalhes da Empresa</h2>
+            <p><strong>Nome:</strong> ${empresa.nome}</p>
+            <p><strong>Matrícula:</strong> ${empresa.matricula}</p>
+            <p><strong>CNPJ:</strong> ${empresa.cnpj}</p>
+            <p><strong>CEP:</strong> ${empresa.cep}</p>
+            <p><strong>Endereço:</strong> ${empresa.endereco}</p>
+            <p><strong>Cidade:</strong> ${empresa.cidade}</p>
+            <p><strong>Bairro:</strong> ${empresa.bairro}</p>
+            <p><strong>RH:</strong> ${empresa.rh}</p>
+            <p><strong>Ramo:</strong> ${empresa.ramo}</p>
+            <p><strong>Email:</strong> ${empresa.email}</p>
+            <p><strong>Filial:</strong> ${empresa.filial}</p>
+            <p><strong>Estagiários:</strong> ${empresa.estagiario}</p>
+            <p><strong>Funcionários:</strong> ${empresa.funcionarios}</p>
+            <p><strong>Inscrição:</strong> ${empresa.inscricao}</p>
+            <p><strong>Responsável:</strong> ${empresa.responsavel}</p>
+            <p><strong>Telefones:</strong> ${empresa.telefones}</p>
+            <p><strong>Como:</strong> ${empresa.como}</p>
+            <div class="modal-buttons">
+              <button class="cancel-btn" onclick="fecharModal()">Fechar</button>
+            </div>
+          </div>
+        `;
+        modal.style.display = "flex";
+      }
+
+      function fecharModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      async function salvarEdicao() {
+        const id = document.getElementById("empresaId").value;
+        const payload = {
+          nome: document.getElementById("nome").value,
+          matricula: document.getElementById("matricula").value,
+          cnpj: document.getElementById("cnpj").value,
+          cep: document.getElementById("cep").value,
+          endereco: document.getElementById("endereco").value,
+          cidade: document.getElementById("cidade").value,
+          bairro: document.getElementById("bairro").value,
+          rh: document.getElementById("rh").value,
+          ramo: document.getElementById("ramo").value,
+          email: document.getElementById("email").value,
+          filial: document.getElementById("filial").value,
+          estagiario: document.getElementById("estagiario").value,
+          funcionarios: document.getElementById("funcionarios").value,
+          inscricao: document.getElementById("inscricao").value,
+          responsavel: document.getElementById("responsavel").value,
+          telefones: document.getElementById("telefones").value,
+          como: document.getElementById("como").value,
+        };
+
+        try {
+          const res = await fetch(`${API_URL}/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const msg = await res.text();
+          alert(msg);
+          fecharModal();
+          carregarEmpresas();
+        } catch (err) {
+          console.error(err);
+          alert("Erro ao atualizar empresa.");
+        }
+      }
+
+      async function excluirEmpresa(id) {
+        if (!confirm("Deseja realmente excluir esta empresa?")) return;
+        try {
+          const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+          const msg = await res.text();
+          alert(msg);
+          carregarEmpresas();
+        } catch (err) {
+          console.error(err);
+          alert("Erro ao excluir empresa.");
+        }
       }
 
       window.onload = carregarEmpresas;

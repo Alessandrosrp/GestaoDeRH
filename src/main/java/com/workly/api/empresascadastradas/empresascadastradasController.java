@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.workly.api.cadastroempresa.empresa;
 import com.workly.api.criarperfil.Conexao;
-import com.workly.api.mensagem.mensagem2Controller;
 import com.workly.api.mensagem.mensagem3Controller;
 
 import javafx.collections.FXCollections;
@@ -23,7 +22,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,7 +31,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -187,7 +184,7 @@ void empresasdisponiveis_tableMouseClicked(MouseEvent event) {
         grid.setVgap(12);
         grid.setStyle("-fx-background-color: #1B4965;");
 
-        // Campos editáveis
+        
         TextField nomeField = new TextField(e.getNome());
         TextField cnpjField = new TextField(e.getCnpj());
         TextField cepField = new TextField(e.getCep());
@@ -226,7 +223,7 @@ void empresasdisponiveis_tableMouseClicked(MouseEvent event) {
         grid.add(new Label("Como conheceu:") {{ setStyle(labelStyle); }}, 0, 15); grid.add(comoField, 1, 15);
         grid.add(new Label("Matrícula:") {{ setStyle(labelStyle); }}, 0, 16); grid.add(matriculaField, 1, 16);
 
-        // Botões
+       
         HBox botoes = new HBox(15);
         botoes.setPadding(new Insets(20, 0, 0, 0));
 
@@ -243,7 +240,7 @@ void empresasdisponiveis_tableMouseClicked(MouseEvent event) {
         GridPane.setColumnSpan(botoes, 2);
         grid.add(botoes, 0, 17);
 
-        // Ações
+      
         salvarBtn.setOnAction(ev -> {
             try (Connection conn = Conexao.conectar()) {
                 String sql = "UPDATE empresacadastrada SET nome=?, cnpj=?, cep=?, endereco=?, cidade=?, bairro=?, " +
@@ -318,7 +315,7 @@ void empresasdisponiveis_tableMouseClicked(MouseEvent event) {
             stage.close();
         });
 
-        // Exibe janela
+        
         Stage stage = new Stage();
         stage.setTitle("Editar Empresa");
         stage.setScene(new Scene(grid, 650, 750));
