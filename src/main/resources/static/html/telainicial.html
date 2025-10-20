@@ -1,263 +1,278 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Carreira Ideau</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carreira Ideau</title>
 
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background-color: #1b4965;
-        color: white;
-      }
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 
-      .container-main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
+  <link rel="stylesheet" href="css/telainicial.css">
+  <!-- <style>
+    body {
+      background: linear-gradient(to right, #1B4965, #3E4C59, #1B4965);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      font-family: Arial, sans-serif;
+      background-color: #1b4965;
+      color: white;
+    }
 
-      h1 {
-        text-align: center;
-        font-size: 36px;
-        margin-bottom: 30px;
-      }
+    /* Texto de fundo */
+    .background-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10vw;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.05);
+      white-space: nowrap;
+      font-family: 'Montserrat', sans-serif;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-      .search-bar {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
+    .container-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-      .search-bar input {
-        flex: 1;
-        padding: 8px 12px;
-        font-size: 14px;
-        border: none;
-        border-radius: 4px;
-        background-color: #3e4c59;
-        color: white;
-        font-weight: bold;
-      }
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
 
-      .search-bar input::placeholder {
-        color: #ddd;
-      }
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-      .search-bar button {
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        background-color: #3e4c59;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.2s;
-      }
+    .search-bar input {
+      flex: 1;
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      background-color: #3e4c59;
+      color: white;
+      font-weight: bold;
+    }
 
-      .search-bar button:hover {
-        background-color: #566372;
-      }
+    .search-bar input::placeholder {
+      color: #ddd;
+    }
 
-      .table-container {
-        overflow-x: auto;
-        margin-bottom: 20px;
-      }
+    .search-bar button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #3e4c59;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
-        word-wrap: break-word;
-        background-color: #3e4c59;
-        color: white;
-      }
+    .search-bar button:hover {
+      background-color: #566372;
+    }
 
-      table th,
-      table td {
-        border: 6px solid #2c3948;
-        padding: 8px;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 20px;
+    }
 
-      table th {
-        background-color: #2c3948;
-        font-weight: bold;
-      }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      word-wrap: break-word;
+      background-color: #3e4c59;
+      color: white;
+    }
 
-      #card-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
+    table th,
+    table td {
+      border: 6px solid #2c3948;
+      padding: 8px;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-      .vaga-card {
-        background: #fff;
-        color: #000;
-        padding: 20px;
-        border-radius: 8px;
-        max-width: 500px;
-        width: 90%;
-      }
+    table th {
+      background-color: #2c3948;
+      font-weight: bold;
+    }
 
-      .vaga-card h5 {
-        margin-bottom: 15px;
-        font-size: 20px;
-        font-weight: bold;
-      }
+    #card-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
 
-      .vaga-card p {
-        margin: 5px 0;
-      }
+    .vaga-card {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+    }
 
-      .btn-fechar {
-        background: #3e4c59;
-        color: #fff;
-        border: none;
-        padding: 8px 16px;
-        border-radius: 4px;
-        cursor: pointer;
-        margin-top: 15px;
-      }
+    .vaga-card h5 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-      .btn-fechar:hover {
-        background: #566372;
-      }
+    .vaga-card p {
+      margin: 5px 0;
+    }
 
-      .btn-group-custom {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-      }
+    .btn-fechar {
+      background: #3e4c59;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
 
-      .btn-group-custom button {
-        padding: 8px 16px;
-        border-radius: 4px;
-        border: none;
-        background-color: #3e4c59;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.2s;
-      }
+    .btn-fechar:hover {
+      background: #566372;
+    }
 
-      .btn-group-custom button:hover {
-        background-color: #566372;
-      }
-    </style>
-  </head>
+    .btn-group-custom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-  <body>
-    <div class="container-main">
-      <h1>Carreira Ideau</h1>
+    .btn-group-custom button {
+      padding: 8px 16px;
+      border-radius: 4px;
+      border: none;
+      background-color: #3e4c59;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-      <div class="search-bar">
-        <input
-          type="text"
-          id="pesquisa_txt"
-          placeholder="Pesquise por vagas disponíveis"
-        />
-        <button id="btn_pesquisa">Pesquisar</button>
-      </div>
+    .btn-group-custom button:hover {
+      background-color: #566372;
+    }
+  </style> -->
+</head>
 
-      <div class="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Empresa</th>
-              <th>Descrição</th>
-              <th>Contato</th>
-              <th>Tipo</th>
-              <th>Curso</th>
-              <th>Nível</th>
-            </tr>
-          </thead>
-          <tbody id="vagasdisponiveis_table"></tbody>
-        </table>
-      </div>
+<body>
+  <div class="background-text">CARREIRA IDEAU</div>
 
-      <div id="card-overlay"></div>
+  <div class="container-main">
+    <h1>Carreira Ideau</h1>
 
-      <div class="btn-group-custom">
-        <button onclick="abrirTela('teladecadastro.html')">Criar Perfil</button>
-        <button onclick="abrirTela('cadastrocurriculo.html')">
-          Cadastrar Currículo
-        </button>
-        <button onclick="abrirTela('novasenha.html')">Redefinir senha</button>
-        <button onclick="abrirTela('configuracao.html')">Configurações</button>
-      </div>
+    <div class="search-bar">
+      <input type="text" id="pesquisa_txt" placeholder="Pesquise por vagas disponíveis" />
+      <button id="btn_pesquisa">Pesquisar</button>
     </div>
 
-    <script>
-      function abrirTela(url) {
-        window.location.href = url;
-      }
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Empresa</th>
+            <th>Descrição</th>
+            <th>Contato</th>
+            <th>Tipo</th>
+            <th>Curso</th>
+            <th>Nível</th>
+          </tr>
+        </thead>
+        <tbody id="vagasdisponiveis_table"></tbody>
+      </table>
+    </div>
 
-      document.addEventListener("DOMContentLoaded", () => {
-        carregarVagas();
+    <div id="card-overlay"></div>
 
-        document
-          .getElementById("btn_pesquisa")
-          .addEventListener("click", () => {
-            const termo = document
-              .getElementById("pesquisa_txt")
-              .value.toLowerCase();
-            carregarVagas(termo);
-          });
+    <div class="btn-group-custom">
+      <button onclick="abrirTela('teladecadastro.html')">Criar Perfil</button>
+      <button onclick="abrirTela('cadastrocurriculo.html')">
+        Cadastrar Currículo
+      </button>
+      <button onclick="abrirTela('novasenha.html')">Redefinir senha</button>
+      <button onclick="abrirTela('configuracao.html')">Configurações</button>
+    </div>
+  </div>
 
-        const overlay = document.getElementById("card-overlay");
-        overlay.addEventListener("click", (e) => {
-          if (e.target === overlay) fecharCard();
+  <script>
+    function abrirTela(url) {
+      window.location.href = url;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      carregarVagas();
+
+      document
+        .getElementById("btn_pesquisa")
+        .addEventListener("click", () => {
+          const termo = document
+            .getElementById("pesquisa_txt")
+            .value.toLowerCase();
+          carregarVagas(termo);
         });
 
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape") fecharCard();
-        });
+      const overlay = document.getElementById("card-overlay");
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) fecharCard();
       });
 
-      async function carregarVagas(filtro = "") {
-        try {
-          const url = "http://localhost:8080/api/vagas";
-          const response = await fetch(url);
-          const data = await response.json();
-          const tabela = document.getElementById("vagasdisponiveis_table");
-          tabela.innerHTML = "";
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") fecharCard();
+      });
+    });
 
-          const vagasFiltradas = filtro
-            ? data.filter((v) =>
-                Object.values(v).some(
-                  (val) => val && val.toString().toLowerCase().includes(filtro)
-                )
-              )
-            : data;
+    async function carregarVagas(filtro = "") {
+      try {
+        const url = "http://localhost:8080/api/vagas";
+        const response = await fetch(url);
+        const data = await response.json();
+        const tabela = document.getElementById("vagasdisponiveis_table");
+        tabela.innerHTML = "";
 
-          if (vagasFiltradas.length === 0) {
-            tabela.innerHTML = `<tr><td colspan="7" style="text-align:center">Nenhuma vaga encontrada</td></tr>`;
-            return;
-          }
+        const vagasFiltradas = filtro
+          ? data.filter((v) =>
+            Object.values(v).some(
+              (val) => val && val.toString().toLowerCase().includes(filtro)
+            )
+          )
+          : data;
 
-          vagasFiltradas.forEach((v) => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
+        if (vagasFiltradas.length === 0) {
+          tabela.innerHTML = `<tr><td colspan="7" style="text-align:center">Nenhuma vaga encontrada</td></tr>`;
+          return;
+        }
+
+        vagasFiltradas.forEach((v) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
             <td>${v.id}</td>
             <td>${v.empresa}</td>
             <td>${v.descricao}</td>
@@ -266,17 +281,17 @@
             <td>${v.curso}</td>
             <td>${v.nivel}</td>
           `;
-            row.addEventListener("dblclick", () => mostrarCard(v));
-            tabela.appendChild(row);
-          });
-        } catch (error) {
-          console.error("Erro ao carregar vagas:", error);
-        }
+          row.addEventListener("dblclick", () => mostrarCard(v));
+          tabela.appendChild(row);
+        });
+      } catch (error) {
+        console.error("Erro ao carregar vagas:", error);
       }
+    }
 
-      function mostrarCard(vaga) {
-        const overlay = document.getElementById("card-overlay");
-        overlay.innerHTML = `
+    function mostrarCard(vaga) {
+      const overlay = document.getElementById("card-overlay");
+      overlay.innerHTML = `
         <div class="vaga-card">
           <h5>${vaga.empresa}</h5>
           <p><strong>Descrição:</strong> ${vaga.descricao}</p>
@@ -284,20 +299,20 @@
           <p><strong>Tipo:</strong> ${vaga.tipo}</p>
           <p><strong>Curso:</strong> ${vaga.curso}</p>
           <p><strong>Nível:</strong> ${vaga.nivel}</p>
-          <img src="${
-            vaga.foto ? "file:///" + vaga.foto : "imagens/semfoto.png"
-          }" style="width:250px;height:250px;object-fit:cover;margin-top:10px">
+          <img src="${vaga.foto ? "file:///" + vaga.foto : "imagens/semfoto.png"
+        }" style="width:250px;height:250px;object-fit:cover;margin-top:10px">
           <button class="btn-fechar" onclick="fecharCard()">Fechar</button>
         </div>
       `;
-        overlay.style.display = "flex";
-      }
+      overlay.style.display = "flex";
+    }
 
-      function fecharCard() {
-        const overlay = document.getElementById("card-overlay");
-        overlay.style.display = "none";
-        overlay.innerHTML = "";
-      }
-    </script>
-  </body>
+    function fecharCard() {
+      const overlay = document.getElementById("card-overlay");
+      overlay.style.display = "none";
+      overlay.innerHTML = "";
+    }
+  </script>
+</body>
+
 </html>
